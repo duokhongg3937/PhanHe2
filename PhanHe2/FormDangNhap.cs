@@ -12,8 +12,8 @@ namespace PhanHe2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtBoxUsername.Text.Trim();
-            string password = txtBoxPassword.Text.Trim();
+            string username = txt_username.Text.Trim();
+            string password = txt_password.Text.Trim();
 
             ConnectionResult connectionResult = DatabaseHandler.Connect(username, password);
 
