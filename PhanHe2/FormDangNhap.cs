@@ -20,6 +20,8 @@ namespace PhanHe2
             if (connectionResult.Status == ConnectionStatus.Success)
             {
                 Program.role = DatabaseHandler.GetUserRole(username);
+                Program.roleTablePrivileges = DatabaseHandler.GetRoleTablePrivileges(Program.role);
+
                 if (Program.role == "C##RL_NHANVIENCOBAN")
                 {
                     FormNVCoBan formNVCoBan = new FormNVCoBan();

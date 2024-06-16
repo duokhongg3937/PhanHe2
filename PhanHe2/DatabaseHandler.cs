@@ -62,15 +62,19 @@ namespace PhanHe2
 
         public static string GetUserRole(string username)
         {
+            string role = "";
             string query = "SELECT GRANTED_ROLE FROM USER_ROLE_PRIVS WHERE USERNAME = :username AND GRANTED_ROLE LIKE '%C##RL_%'";
 
             OracleCommand command = new OracleCommand(query, Conn);
             command.Parameters.Add(new OracleParameter("username", username));
             
-            string role = command.ExecuteScalar().ToString();
+            object result = command.ExecuteScalar();
+            if (result != null) role = command.ExecuteScalar().ToString();
+
             return role;
         }
 
+        // test
         public static DataTable GetUserTableNames(string username)
         {
             DataTable dataTable = new DataTable();
@@ -85,6 +89,7 @@ namespace PhanHe2
             return dataTable;
         }
 
+        // test
         public static DataTable GetUserTable(DataTable namesTable)
         {
             DataTable dataTable = new DataTable();
@@ -102,7 +107,6 @@ namespace PhanHe2
                 DataTable tempTable = new DataTable();
                 adapter.Fill(tempTable);
 
-                // Add the table name as a prefix to each column name to avoid conflicts
                 foreach (DataColumn column in tempTable.Columns)
                 {
                     column.ColumnName = $"{tableName}_{column.ColumnName}";
@@ -126,9 +130,11 @@ namespace PhanHe2
 
             while (reader.Read())
             {
+
                 string owner = reader.GetString(1);
                 string tableName = reader.GetString(2);
-                string columnName = reader.GetString(3);
+                object columnData = reader.GetValue(3);
+                string columnName = columnData == DBNull.Value ? null : columnData.ToString();
                 string privilege = reader.GetString(4);
 
                 RoleTablePrivilege roleTablePrivilege = new RoleTablePrivilege
@@ -144,6 +150,52 @@ namespace PhanHe2
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Hàm cập nhật giá trị 1 cột trong bảng dữ liệu
+        /// </summary>
+        /// <param name="owner">User sở hữu bảng</param>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="colName">Tên cột</param>
+        /// <param name="newVal">Giá trị cần update</param>
+        /// <returns></returns>
+        public static bool UpdateCell(string owner, string tableName, string colName, object newVal)
+        {
+            string query = $"UPDATE {owner}.{tableName} " +
+                $"SET {colName} = :newVal";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("newVal", newVal));
+
+            int rowsAffected = command.ExecuteNonQuery();
+            return (rowsAffected > 0);
+        }
+
+        public static bool UpdateCell(string owner, string tableName, string colName, object newVal, string conditionCol, object conditionVal)
+        {
+            string query = $"UPDATE {owner}.{tableName} " +
+                $"SET {colName} = :newVal " +
+                $"WHERE {conditionCol} = :conditionVal";
+
+            OracleCommand command = new OracleCommand(query, Conn) ;
+            command.Parameters.Add(new OracleParameter("newVal", newVal)); 
+            command.Parameters.Add(new OracleParameter("conditionVal", conditionVal));
+
+            int rowsAffected = command.ExecuteNonQuery();
+            return (rowsAffected > 0);
+        }
+
+        public static DataTable GetAll(string owner, string tableName)
+        {
+            string query = $"SELECT * FROM {owner}.{tableName}";
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            DataTable dataTable = new DataTable();
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            return dataTable;
         }
     }
 }

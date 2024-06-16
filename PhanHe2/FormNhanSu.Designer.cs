@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -49,6 +48,7 @@
             // 
             // gridView
             // 
+            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Location = new System.Drawing.Point(19, 42);
             this.gridView.Name = "gridView";
@@ -88,7 +88,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.Button btnCapNhat;
     }
