@@ -89,6 +89,24 @@
   <ItemGroup>
     <Compile Include="ConnectionResult.cs" />
     <Compile Include="DatabaseHandler.cs" />
+    <Compile Include="FormCapNhatDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCapNhatDangKy.Designer.cs">
+      <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangKy.Designer.cs">
+      <DependentUpon>FormDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhanCong.Designer.cs">
+      <DependentUpon>FormPhanCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,11 +149,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNVCoBan.cs">
+    <Compile Include="FormManHinhChinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNVCoBan.Designer.cs">
-      <DependentUpon>FormNVCoBan.cs</DependentUpon>
+    <Compile Include="FormManHinhChinh.Designer.cs">
+      <DependentUpon>FormManHinhChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Models\RoleTablePrivilege.cs" />
@@ -147,8 +165,14 @@
     <Compile Include="FormNhanSu.Designer.cs">
       <DependentUpon>FormNhanSu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCapNhatDangKy.resx">
+      <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCapNhatNhanSu.resx">
       <DependentUpon>FormCapNhatNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangKy.resx">
+      <DependentUpon>FormDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
@@ -156,11 +180,20 @@
     <EmbeddedResource Include="FormDonVi.resx">
       <DependentUpon>FormDonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHocPhan.resx">
+      <DependentUpon>FormHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKeHoachMo.resx">
+      <DependentUpon>FormKeHoachMo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNVCoBan.resx">
-      <DependentUpon>FormNVCoBan.cs</DependentUpon>
+    <EmbeddedResource Include="FormManHinhChinh.resx">
+      <DependentUpon>FormManHinhChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhanCong.resx">
+      <DependentUpon>FormPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>

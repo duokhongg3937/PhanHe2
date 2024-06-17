@@ -33,9 +33,7 @@
             this.labelHoTen = new System.Windows.Forms.Label();
             this.txtBoxHoTen = new System.Windows.Forms.TextBox();
             this.labelPhai = new System.Windows.Forms.Label();
-            this.txtBoxPhai = new System.Windows.Forms.TextBox();
             this.labelNgaySinh = new System.Windows.Forms.Label();
-            this.txtBoxNgaySinh = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,9 +41,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxSDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxVaiTro = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxMaDV = new System.Windows.Forms.TextBox();
+            this.txtBoxVaiTro = new System.Windows.Forms.TextBox();
+            this.txtBoxPhai = new System.Windows.Forms.TextBox();
+            this.txtBoxNgaySinh = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelMaNV
@@ -98,16 +98,6 @@
             this.labelPhai.TabIndex = 0;
             this.labelPhai.Text = "Phái";
             // 
-            // txtBoxPhai
-            // 
-            this.txtBoxPhai.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxPhai.Location = new System.Drawing.Point(45, 258);
-            this.txtBoxPhai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxPhai.Name = "txtBoxPhai";
-            this.txtBoxPhai.ReadOnly = true;
-            this.txtBoxPhai.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxPhai.TabIndex = 2;
-            // 
             // labelNgaySinh
             // 
             this.labelNgaySinh.AutoSize = true;
@@ -117,16 +107,6 @@
             this.labelNgaySinh.Size = new System.Drawing.Size(84, 21);
             this.labelNgaySinh.TabIndex = 0;
             this.labelNgaySinh.Text = "Ngày sinh";
-            // 
-            // txtBoxNgaySinh
-            // 
-            this.txtBoxNgaySinh.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxNgaySinh.Location = new System.Drawing.Point(45, 357);
-            this.txtBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxNgaySinh.Name = "txtBoxNgaySinh";
-            this.txtBoxNgaySinh.ReadOnly = true;
-            this.txtBoxNgaySinh.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxNgaySinh.TabIndex = 2;
             // 
             // btnCancel
             // 
@@ -198,16 +178,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Vai trò";
             // 
-            // txtBoxVaiTro
-            // 
-            this.txtBoxVaiTro.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxVaiTro.Location = new System.Drawing.Point(330, 258);
-            this.txtBoxVaiTro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxVaiTro.Name = "txtBoxVaiTro";
-            this.txtBoxVaiTro.ReadOnly = true;
-            this.txtBoxVaiTro.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxVaiTro.TabIndex = 2;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -227,6 +197,36 @@
             this.txtBoxMaDV.ReadOnly = true;
             this.txtBoxMaDV.Size = new System.Drawing.Size(202, 28);
             this.txtBoxMaDV.TabIndex = 2;
+            // 
+            // txtBoxVaiTro
+            // 
+            this.txtBoxVaiTro.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
+            this.txtBoxVaiTro.Location = new System.Drawing.Point(330, 258);
+            this.txtBoxVaiTro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBoxVaiTro.Name = "txtBoxVaiTro";
+            this.txtBoxVaiTro.ReadOnly = true;
+            this.txtBoxVaiTro.Size = new System.Drawing.Size(202, 28);
+            this.txtBoxVaiTro.TabIndex = 2;
+            // 
+            // txtBoxPhai
+            // 
+            this.txtBoxPhai.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
+            this.txtBoxPhai.Location = new System.Drawing.Point(45, 258);
+            this.txtBoxPhai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBoxPhai.Name = "txtBoxPhai";
+            this.txtBoxPhai.ReadOnly = true;
+            this.txtBoxPhai.Size = new System.Drawing.Size(202, 28);
+            this.txtBoxPhai.TabIndex = 2;
+            // 
+            // txtBoxNgaySinh
+            // 
+            this.txtBoxNgaySinh.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
+            this.txtBoxNgaySinh.Location = new System.Drawing.Point(45, 357);
+            this.txtBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBoxNgaySinh.Name = "txtBoxNgaySinh";
+            this.txtBoxNgaySinh.ReadOnly = true;
+            this.txtBoxNgaySinh.Size = new System.Drawing.Size(202, 28);
+            this.txtBoxNgaySinh.TabIndex = 2;
             // 
             // FormCapNhatNhanSu
             // 
@@ -269,9 +269,7 @@
         private System.Windows.Forms.Label labelHoTen;
         private System.Windows.Forms.TextBox txtBoxHoTen;
         private System.Windows.Forms.Label labelPhai;
-        private System.Windows.Forms.TextBox txtBoxPhai;
         private System.Windows.Forms.Label labelNgaySinh;
-        private System.Windows.Forms.TextBox txtBoxNgaySinh;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
@@ -279,8 +277,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxSDT;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBoxVaiTro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxMaDV;
+        private System.Windows.Forms.TextBox txtBoxVaiTro;
+        private System.Windows.Forms.TextBox txtBoxPhai;
+        private System.Windows.Forms.TextBox txtBoxNgaySinh;
     }
 }

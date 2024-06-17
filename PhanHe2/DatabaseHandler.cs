@@ -118,19 +118,17 @@ namespace PhanHe2
             return dataTable;
         }
 
-        public static List<RoleTablePrivilege> GetRoleTablePrivileges(string role)
+        public static List<RoleTablePrivilege> GetRoleTablePrivileges()
         {
             List<RoleTablePrivilege > result = new List<RoleTablePrivilege>();
-            string query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE = :role";
+            string query = $"SELECT * FROM ROLE_TAB_PRIVS";
 
             OracleCommand command = new OracleCommand(query, Conn);
-            command.Parameters.Add(new OracleParameter("role", role));
 
             OracleDataReader reader = command.ExecuteReader();
-
             while (reader.Read())
             {
-
+                string role = reader.GetString(0);
                 string owner = reader.GetString(1);
                 string tableName = reader.GetString(2);
                 object columnData = reader.GetValue(3);

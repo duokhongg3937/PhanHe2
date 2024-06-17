@@ -9,21 +9,19 @@ namespace PhanHe2
 {
     public partial class FormNhanSu : Form
     {
-        private string _tableName;
-        private string _owner;
+        private RoleTablePrivilege _roleTabPriv;
 
-        public FormNhanSu(string owner, string tableName)
+        public FormNhanSu(RoleTablePrivilege roleTabPriv)
         {
             InitializeComponent();
-            _tableName = tableName;
-            _owner = owner;
+            _roleTabPriv = roleTabPriv;
         }
 
         private void FormNhanSu_Load(object sender, EventArgs e)
         {
             try
             {
-                DataTable dataTable = DatabaseHandler.GetAll(_owner, _tableName);
+                DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
                 gridView.DataSource = dataTable;
             } 
             catch (Exception ex)
@@ -38,19 +36,19 @@ namespace PhanHe2
 
             foreach (RoleTablePrivilege priv in Program.roleTablePrivileges)
             {
-                if (priv.TableName == _tableName && priv.ColumnName != null && priv.Privilege == "UPDATE")
+                if (priv.TableName == _roleTabPriv.TableName && priv.ColumnName != null && priv.Privilege == "UPDATE")
                 {
                     colsCanBeUpdated.Add(priv.ColumnName);
                 }
             }
 
             DataTable dataTable = (DataTable)(gridView.DataSource);
-            FormCapNhatNhanSu formCapNhatNhanSu = new FormCapNhatNhanSu(_owner, _tableName, dataTable.Rows[0], colsCanBeUpdated);
+            FormCapNhatNhanSu formCapNhatNhanSu = new FormCapNhatNhanSu(_roleTabPriv.Owner, _roleTabPriv.TableName, dataTable.Rows[0], colsCanBeUpdated);
             DialogResult result = formCapNhatNhanSu.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                dataTable = DatabaseHandler.GetAll(_owner, _tableName);
+                dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
                 gridView.DataSource = dataTable;
             }
         }
