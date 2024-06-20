@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PhanHe2
 {
@@ -184,6 +186,43 @@ namespace PhanHe2
             return (rowsAffected > 0);
         }
 
+        public static bool UpdateCell(string owner, string tableName, Dictionary<string, object> updates, Dictionary<string, object> conditions)
+        {
+            // Construct SET clause
+            List<string> updateClauses = new List<string>();
+            foreach (var update in updates)
+            {
+                updateClauses.Add($"{update.Key} = :{update.Key}");
+            }
+            string updateClause = string.Join(", ", updateClauses);
+
+            // Construct WHERE clause
+            List<string> conditionClauses = new List<string>();
+            foreach (var condition in conditions)
+            {
+                conditionClauses.Add($"{condition.Key} = :{condition.Key}");
+            }
+            string conditionClause = string.Join(" AND ", conditionClauses);
+
+            string query = $"UPDATE {owner}.{tableName} SET {updateClause} WHERE {conditionClause}";
+
+
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            foreach (var update in updates)
+            {
+                command.Parameters.Add(new OracleParameter(update.Key, update.Value));
+            }
+
+            foreach (var condition in conditions)
+            {
+                command.Parameters.Add(new OracleParameter(condition.Key, condition.Value));
+            }
+
+            int rowsAffected = command.ExecuteNonQuery();
+            return (rowsAffected > 0);
+        }
+
         public static DataTable GetAll(string owner, string tableName)
         {
             string query = $"SELECT * FROM {owner}.{tableName}";
@@ -194,6 +233,53 @@ namespace PhanHe2
             adapter.Fill(dataTable);
 
             return dataTable;
+        }
+
+        public static bool Insert(string owner, string tableName, Dictionary<string, object> columnValues)
+        {
+            string columns = string.Join(", ", columnValues.Keys);
+            string values = string.Join(", ", columnValues.Keys.Select(key => $":{key}"));
+            string query = $"INSERT INTO {owner}.{tableName} ({columns}) VALUES ({values})";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            foreach (var columnValue in columnValues)
+            {
+                command.Parameters.Add(new OracleParameter(columnValue.Key, columnValue.Value));
+            }
+
+            try
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Exception: {ex.Message}");
+                return false;
+            }
+        }
+       
+        public static bool Delete(string owner, string tableName, Dictionary<string, object> conditions)
+        {
+            List<string> conditionClauses = new List<string>();
+            foreach (var condition in conditions)
+            {
+                conditionClauses.Add($"{condition.Key} = :{condition.Key}");
+            }
+            
+            string conditionClause = string.Join(" AND ", conditionClauses);
+            string query = $"DELETE FROM {owner}.{tableName} WHERE {conditionClause}";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            foreach (var condition in conditions)
+            {
+                command.Parameters.Add(new OracleParameter(condition.Key, condition.Value));
+            }
+
+            int rowsAffected = command.ExecuteNonQuery();   
+            return (rowsAffected > 0);
         }
     }
 }
