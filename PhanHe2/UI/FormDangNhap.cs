@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhanHe2.UI;
+using System;
 using System.Windows.Forms;
 
 namespace PhanHe2
@@ -22,8 +23,16 @@ namespace PhanHe2
                 Program.role = DatabaseHandler.GetUserRole(username);
                 Program.roleTablePrivileges = DatabaseHandler.GetRoleTablePrivileges();
                 
-                FormManHinhChinh formManHinhChinh = new FormManHinhChinh();
-                formManHinhChinh.Show();
+                if (DatabaseHandler.IsStudent())
+                {
+                    FormMainSinhVien formSinhVien = new FormMainSinhVien();
+                    formSinhVien.Show();
+                } else
+                {
+                    FormManHinhChinh formManHinhChinh = new FormManHinhChinh();
+                    formManHinhChinh.Show();
+                }
+
                 
                 this.Hide();
             }

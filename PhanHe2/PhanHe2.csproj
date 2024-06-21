@@ -89,6 +89,16 @@
   <ItemGroup>
     <Compile Include="Database\ConnectionResult.cs" />
     <Compile Include="Database\DatabaseHandler.cs" />
+    <Compile Include="Models\CTDaoTao.cs" />
+    <Compile Include="Models\DangKy.cs" />
+    <Compile Include="Models\DonVi.cs" />
+    <Compile Include="Models\HocPhan.cs" />
+    <Compile Include="Models\KHMO.cs" />
+    <Compile Include="Models\Nganh.cs" />
+    <Compile Include="Models\NhanSu.cs" />
+    <Compile Include="Models\PhanCong.cs" />
+    <Compile Include="Models\SinhVien.cs" />
+    <Compile Include="Models\VaiTro.cs" />
     <Compile Include="UI\DangKy\FormCapNhatDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +152,18 @@
     </Compile>
     <Compile Include="UI\KeHoachMo\FormThemKeHoachMo.Designer.cs">
       <DependentUpon>FormThemKeHoachMo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormMainSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormMainSinhVien.Designer.cs">
+      <DependentUpon>FormMainSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormUpdate\FormUpdateStudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormUpdate\FormUpdateStudentInfo.Designer.cs">
+      <DependentUpon>FormUpdateStudentInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PhanCong\FormPhanCong.cs">
       <SubType>Form</SubType>
@@ -203,6 +225,12 @@
     </Compile>
     <EmbeddedResource Include="UI\DangKy\FormCapNhatDangKy.resx">
       <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormMainSinhVien.resx">
+      <DependentUpon>FormMainSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormUpdate\FormUpdateStudentInfo.resx">
+      <DependentUpon>FormUpdateStudentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DonVi\FormCapNhatDonVi.resx">
       <DependentUpon>FormCapNhatDonVi.cs</DependentUpon>
