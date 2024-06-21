@@ -30,59 +30,59 @@
         {
             this.formMainSVTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.updateInfo_Btn = new System.Windows.Forms.Button();
+            this.dtbtl_TextBox = new System.Windows.Forms.TextBox();
+            this.stctl_TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.maNganh_TextBox = new System.Windows.Forms.TextBox();
+            this.maCT_TextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.matKhauTextBox = new System.Windows.Forms.TextBox();
-            this.luongTextBox = new System.Windows.Forms.TextBox();
-            this.hoTenTextBox = new System.Windows.Forms.TextBox();
+            this.SDT_TextBox = new System.Windows.Forms.TextBox();
+            this.ngaySinh_TextBox = new System.Windows.Forms.TextBox();
+            this.diaChi_TextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.tenDNTextBox = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.maNVTextBox = new System.Windows.Forms.TextBox();
+            this.gioiTinh_TextBox = new System.Windows.Forms.TextBox();
+            this.hoTen_TextBox = new System.Windows.Forms.TextBox();
+            this.maSV_TextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.maSV_label = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
+            this.resultLookup_dataGridView = new System.Windows.Forms.DataGridView();
+            this.lookUp_Btn = new System.Windows.Forms.Button();
+            this.semester_ComboBox = new System.Windows.Forms.ComboBox();
+            this.year_ComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.KHMO_dataGridView = new System.Windows.Forms.DataGridView();
+            this.lookupKHMO_Btn = new System.Windows.Forms.Button();
+            this.semesterKHMO_ComboBox = new System.Windows.Forms.ComboBox();
+            this.yearKHM_ComboBox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.courseRegister_Btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.courseRegister_dataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.resultCourseRegister_dataGridView = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
             this.formMainSVTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLookup_dataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KHMO_dataGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseRegister_dataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultCourseRegister_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // formMainSVTabControl
@@ -102,27 +102,27 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.updateInfo_Btn);
+            this.tabPage1.Controls.Add(this.dtbtl_TextBox);
+            this.tabPage1.Controls.Add(this.stctl_TextBox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.maNganh_TextBox);
+            this.tabPage1.Controls.Add(this.maCT_TextBox);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.matKhauTextBox);
-            this.tabPage1.Controls.Add(this.luongTextBox);
-            this.tabPage1.Controls.Add(this.hoTenTextBox);
+            this.tabPage1.Controls.Add(this.SDT_TextBox);
+            this.tabPage1.Controls.Add(this.ngaySinh_TextBox);
+            this.tabPage1.Controls.Add(this.diaChi_TextBox);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.tenDNTextBox);
-            this.tabPage1.Controls.Add(this.emailTextBox);
-            this.tabPage1.Controls.Add(this.maNVTextBox);
+            this.tabPage1.Controls.Add(this.gioiTinh_TextBox);
+            this.tabPage1.Controls.Add(this.hoTen_TextBox);
+            this.tabPage1.Controls.Add(this.maSV_TextBox);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.maSV_label);
             this.tabPage1.Location = new System.Drawing.Point(4, 36);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -131,20 +131,32 @@
             this.tabPage1.Text = "Thông tin sinh  viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // updateInfo_Btn
             // 
-            this.textBox1.Location = new System.Drawing.Point(582, 262);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(152, 22);
-            this.textBox1.TabIndex = 32;
+            this.updateInfo_Btn.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.updateInfo_Btn.Location = new System.Drawing.Point(609, 396);
+            this.updateInfo_Btn.Name = "updateInfo_Btn";
+            this.updateInfo_Btn.Size = new System.Drawing.Size(125, 35);
+            this.updateInfo_Btn.TabIndex = 33;
+            this.updateInfo_Btn.Text = "Cập nhật";
+            this.updateInfo_Btn.UseVisualStyleBackColor = false;
+            this.updateInfo_Btn.Click += new System.EventHandler(this.updateInfo_Btn_Click);
             // 
-            // textBox2
+            // dtbtl_TextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(582, 223);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 22);
-            this.textBox2.TabIndex = 31;
+            this.dtbtl_TextBox.Location = new System.Drawing.Point(582, 262);
+            this.dtbtl_TextBox.Name = "dtbtl_TextBox";
+            this.dtbtl_TextBox.ReadOnly = true;
+            this.dtbtl_TextBox.Size = new System.Drawing.Size(152, 22);
+            this.dtbtl_TextBox.TabIndex = 32;
+            // 
+            // stctl_TextBox
+            // 
+            this.stctl_TextBox.Location = new System.Drawing.Point(582, 223);
+            this.stctl_TextBox.Name = "stctl_TextBox";
+            this.stctl_TextBox.ReadOnly = true;
+            this.stctl_TextBox.Size = new System.Drawing.Size(152, 22);
+            this.stctl_TextBox.TabIndex = 31;
             // 
             // label1
             // 
@@ -166,20 +178,21 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Số tín chỉ tích lũy";
             // 
-            // textBox3
+            // maNganh_TextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(130, 262);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 22);
-            this.textBox3.TabIndex = 28;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.maNganh_TextBox.Location = new System.Drawing.Point(130, 262);
+            this.maNganh_TextBox.Name = "maNganh_TextBox";
+            this.maNganh_TextBox.ReadOnly = true;
+            this.maNganh_TextBox.Size = new System.Drawing.Size(171, 22);
+            this.maNganh_TextBox.TabIndex = 28;
             // 
-            // textBox4
+            // maCT_TextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(130, 221);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 22);
-            this.textBox4.TabIndex = 27;
+            this.maCT_TextBox.Location = new System.Drawing.Point(130, 221);
+            this.maCT_TextBox.Name = "maCT_TextBox";
+            this.maCT_TextBox.ReadOnly = true;
+            this.maCT_TextBox.Size = new System.Drawing.Size(171, 22);
+            this.maCT_TextBox.TabIndex = 27;
             // 
             // label9
             // 
@@ -201,33 +214,36 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "Mã CT";
             // 
-            // matKhauTextBox
+            // SDT_TextBox
             // 
-            this.matKhauTextBox.Location = new System.Drawing.Point(529, 104);
-            this.matKhauTextBox.Name = "matKhauTextBox";
-            this.matKhauTextBox.PasswordChar = '*';
-            this.matKhauTextBox.Size = new System.Drawing.Size(205, 22);
-            this.matKhauTextBox.TabIndex = 24;
+            this.SDT_TextBox.Location = new System.Drawing.Point(529, 22);
+            this.SDT_TextBox.Name = "SDT_TextBox";
+            this.SDT_TextBox.ReadOnly = true;
+            this.SDT_TextBox.Size = new System.Drawing.Size(205, 22);
+            this.SDT_TextBox.TabIndex = 24;
             // 
-            // luongTextBox
+            // ngaySinh_TextBox
             // 
-            this.luongTextBox.Location = new System.Drawing.Point(529, 65);
-            this.luongTextBox.Name = "luongTextBox";
-            this.luongTextBox.Size = new System.Drawing.Size(205, 22);
-            this.luongTextBox.TabIndex = 23;
+            this.ngaySinh_TextBox.Location = new System.Drawing.Point(529, 61);
+            this.ngaySinh_TextBox.Name = "ngaySinh_TextBox";
+            this.ngaySinh_TextBox.ReadOnly = true;
+            this.ngaySinh_TextBox.Size = new System.Drawing.Size(205, 22);
+            this.ngaySinh_TextBox.TabIndex = 23;
             // 
-            // hoTenTextBox
+            // diaChi_TextBox
             // 
-            this.hoTenTextBox.Location = new System.Drawing.Point(529, 22);
-            this.hoTenTextBox.Name = "hoTenTextBox";
-            this.hoTenTextBox.Size = new System.Drawing.Size(205, 22);
-            this.hoTenTextBox.TabIndex = 22;
+            this.diaChi_TextBox.Location = new System.Drawing.Point(529, 102);
+            this.diaChi_TextBox.Multiline = true;
+            this.diaChi_TextBox.Name = "diaChi_TextBox";
+            this.diaChi_TextBox.ReadOnly = true;
+            this.diaChi_TextBox.Size = new System.Drawing.Size(362, 22);
+            this.diaChi_TextBox.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(417, 110);
+            this.label6.Location = new System.Drawing.Point(417, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 16);
             this.label6.TabIndex = 21;
@@ -237,7 +253,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(417, 67);
+            this.label7.Location = new System.Drawing.Point(417, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 20;
@@ -247,32 +263,35 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(417, 24);
+            this.label8.Location = new System.Drawing.Point(417, 102);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "Địa chỉ";
             // 
-            // tenDNTextBox
+            // gioiTinh_TextBox
             // 
-            this.tenDNTextBox.Location = new System.Drawing.Point(130, 100);
-            this.tenDNTextBox.Name = "tenDNTextBox";
-            this.tenDNTextBox.Size = new System.Drawing.Size(171, 22);
-            this.tenDNTextBox.TabIndex = 18;
+            this.gioiTinh_TextBox.Location = new System.Drawing.Point(130, 100);
+            this.gioiTinh_TextBox.Name = "gioiTinh_TextBox";
+            this.gioiTinh_TextBox.ReadOnly = true;
+            this.gioiTinh_TextBox.Size = new System.Drawing.Size(171, 22);
+            this.gioiTinh_TextBox.TabIndex = 18;
             // 
-            // emailTextBox
+            // hoTen_TextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(130, 61);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(171, 22);
-            this.emailTextBox.TabIndex = 17;
+            this.hoTen_TextBox.Location = new System.Drawing.Point(130, 61);
+            this.hoTen_TextBox.Name = "hoTen_TextBox";
+            this.hoTen_TextBox.ReadOnly = true;
+            this.hoTen_TextBox.Size = new System.Drawing.Size(171, 22);
+            this.hoTen_TextBox.TabIndex = 17;
             // 
-            // maNVTextBox
+            // maSV_TextBox
             // 
-            this.maNVTextBox.Location = new System.Drawing.Point(130, 24);
-            this.maNVTextBox.Name = "maNVTextBox";
-            this.maNVTextBox.Size = new System.Drawing.Size(171, 22);
-            this.maNVTextBox.TabIndex = 16;
+            this.maSV_TextBox.Location = new System.Drawing.Point(130, 24);
+            this.maSV_TextBox.Name = "maSV_TextBox";
+            this.maSV_TextBox.ReadOnly = true;
+            this.maSV_TextBox.Size = new System.Drawing.Size(171, 22);
+            this.maSV_TextBox.TabIndex = 16;
             // 
             // label5
             // 
@@ -294,23 +313,22 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Họ tên";
             // 
-            // label3
+            // maSV_label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Mã SV";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.maSV_label.AutoSize = true;
+            this.maSV_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maSV_label.Location = new System.Drawing.Point(28, 26);
+            this.maSV_label.Name = "maSV_label";
+            this.maSV_label.Size = new System.Drawing.Size(47, 16);
+            this.maSV_label.TabIndex = 13;
+            this.maSV_label.Text = "Mã SV";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.resultLookup_dataGridView);
+            this.tabPage2.Controls.Add(this.lookUp_Btn);
+            this.tabPage2.Controls.Add(this.semester_ComboBox);
+            this.tabPage2.Controls.Add(this.year_ComboBox);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 36);
@@ -321,61 +339,48 @@
             this.tabPage2.Text = "Tra cứu kết quả học tập";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // resultLookup_dataGridView
             // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.comboBox3);
-            this.tabPage3.Controls.Add(this.comboBox4);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Location = new System.Drawing.Point(4, 36);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(929, 503);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Kế hoạch mở";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.resultLookup_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultLookup_dataGridView.Location = new System.Drawing.Point(30, 84);
+            this.resultLookup_dataGridView.Name = "resultLookup_dataGridView";
+            this.resultLookup_dataGridView.Size = new System.Drawing.Size(864, 393);
+            this.resultLookup_dataGridView.TabIndex = 5;
             // 
-            // tabPage4
+            // lookUp_Btn
             // 
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Controls.Add(this.dataGridView3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 36);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(929, 503);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Đăng ký học phần";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.lookUp_Btn.BackColor = System.Drawing.Color.Turquoise;
+            this.lookUp_Btn.Location = new System.Drawing.Point(801, 15);
+            this.lookUp_Btn.Name = "lookUp_Btn";
+            this.lookUp_Btn.Size = new System.Drawing.Size(93, 29);
+            this.lookUp_Btn.TabIndex = 4;
+            this.lookUp_Btn.Text = "Tra cứu";
+            this.lookUp_Btn.UseVisualStyleBackColor = false;
             // 
-            // tabPage5
+            // semester_ComboBox
             // 
-            this.tabPage5.Controls.Add(this.dataGridView4);
-            this.tabPage5.Controls.Add(this.label17);
-            this.tabPage5.Location = new System.Drawing.Point(4, 36);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(929, 503);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Kết quả đăng ký học phần";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.semester_ComboBox.FormattingEnabled = true;
+            this.semester_ComboBox.Location = new System.Drawing.Point(366, 19);
+            this.semester_ComboBox.Name = "semester_ComboBox";
+            this.semester_ComboBox.Size = new System.Drawing.Size(121, 22);
+            this.semester_ComboBox.TabIndex = 3;
             // 
-            // oracleCommandBuilder1
+            // year_ComboBox
             // 
-            this.oracleCommandBuilder1.CatalogLocation = System.Data.Common.CatalogLocation.End;
-            this.oracleCommandBuilder1.CatalogSeparator = "@";
+            this.year_ComboBox.FormattingEnabled = true;
+            this.year_ComboBox.Location = new System.Drawing.Point(105, 19);
+            this.year_ComboBox.Name = "year_ComboBox";
+            this.year_ComboBox.Size = new System.Drawing.Size(121, 22);
+            this.year_ComboBox.TabIndex = 2;
             // 
-            // button1
+            // label12
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button1.Location = new System.Drawing.Point(609, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 35);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Cập nhật";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(284, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(45, 14);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Học kỳ:";
             // 
             // label11
             // 
@@ -386,83 +391,55 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Năm học:";
             // 
-            // label12
+            // tabPage3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(284, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 14);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Học kỳ:";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.tabPage3.Controls.Add(this.KHMO_dataGridView);
+            this.tabPage3.Controls.Add(this.lookupKHMO_Btn);
+            this.tabPage3.Controls.Add(this.semesterKHMO_ComboBox);
+            this.tabPage3.Controls.Add(this.yearKHM_ComboBox);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Location = new System.Drawing.Point(4, 36);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(929, 503);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Kế hoạch mở";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // KHMO_dataGridView
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 22);
-            this.comboBox1.TabIndex = 2;
+            this.KHMO_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.KHMO_dataGridView.Location = new System.Drawing.Point(30, 88);
+            this.KHMO_dataGridView.Name = "KHMO_dataGridView";
+            this.KHMO_dataGridView.Size = new System.Drawing.Size(864, 393);
+            this.KHMO_dataGridView.TabIndex = 11;
             // 
-            // comboBox2
+            // lookupKHMO_Btn
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(366, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 22);
-            this.comboBox2.TabIndex = 3;
+            this.lookupKHMO_Btn.BackColor = System.Drawing.Color.Turquoise;
+            this.lookupKHMO_Btn.Location = new System.Drawing.Point(801, 20);
+            this.lookupKHMO_Btn.Name = "lookupKHMO_Btn";
+            this.lookupKHMO_Btn.Size = new System.Drawing.Size(93, 29);
+            this.lookupKHMO_Btn.TabIndex = 10;
+            this.lookupKHMO_Btn.Text = "Tra cứu";
+            this.lookupKHMO_Btn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // semesterKHMO_ComboBox
             // 
-            this.button2.BackColor = System.Drawing.Color.Turquoise;
-            this.button2.Location = new System.Drawing.Point(801, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Tra cứu";
-            this.button2.UseVisualStyleBackColor = false;
+            this.semesterKHMO_ComboBox.FormattingEnabled = true;
+            this.semesterKHMO_ComboBox.Location = new System.Drawing.Point(373, 24);
+            this.semesterKHMO_ComboBox.Name = "semesterKHMO_ComboBox";
+            this.semesterKHMO_ComboBox.Size = new System.Drawing.Size(121, 22);
+            this.semesterKHMO_ComboBox.TabIndex = 9;
             // 
-            // dataGridView1
+            // yearKHM_ComboBox
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 84);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(864, 393);
-            this.dataGridView1.TabIndex = 5;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(30, 88);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(864, 393);
-            this.dataGridView2.TabIndex = 11;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Turquoise;
-            this.button3.Location = new System.Drawing.Point(801, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 29);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Tra cứu";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(373, 24);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 22);
-            this.comboBox3.TabIndex = 9;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(112, 24);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 22);
-            this.comboBox4.TabIndex = 8;
+            this.yearKHM_ComboBox.FormattingEnabled = true;
+            this.yearKHM_ComboBox.Location = new System.Drawing.Point(112, 24);
+            this.yearKHM_ComboBox.Name = "yearKHM_ComboBox";
+            this.yearKHM_ComboBox.Size = new System.Drawing.Size(121, 22);
+            this.yearKHM_ComboBox.TabIndex = 8;
             // 
             // label13
             // 
@@ -482,13 +459,28 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "Năm học:";
             // 
-            // dataGridView3
+            // tabPage4
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(25, 49);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(874, 383);
-            this.dataGridView3.TabIndex = 0;
+            this.tabPage4.Controls.Add(this.courseRegister_Btn);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.courseRegister_dataGridView);
+            this.tabPage4.Location = new System.Drawing.Point(4, 36);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(929, 503);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Đăng ký học phần";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // courseRegister_Btn
+            // 
+            this.courseRegister_Btn.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.courseRegister_Btn.Location = new System.Drawing.Point(800, 455);
+            this.courseRegister_Btn.Name = "courseRegister_Btn";
+            this.courseRegister_Btn.Size = new System.Drawing.Size(99, 36);
+            this.courseRegister_Btn.TabIndex = 15;
+            this.courseRegister_Btn.Text = "Đăng ký";
+            this.courseRegister_Btn.UseVisualStyleBackColor = false;
             // 
             // label15
             // 
@@ -500,15 +492,33 @@
             this.label15.TabIndex = 14;
             this.label15.Text = "Danh sách môn";
             // 
-            // button4
+            // courseRegister_dataGridView
             // 
-            this.button4.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.button4.Location = new System.Drawing.Point(800, 455);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 36);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Đăng ký";
-            this.button4.UseVisualStyleBackColor = false;
+            this.courseRegister_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courseRegister_dataGridView.Location = new System.Drawing.Point(25, 49);
+            this.courseRegister_dataGridView.Name = "courseRegister_dataGridView";
+            this.courseRegister_dataGridView.Size = new System.Drawing.Size(874, 383);
+            this.courseRegister_dataGridView.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.resultCourseRegister_dataGridView);
+            this.tabPage5.Controls.Add(this.label17);
+            this.tabPage5.Location = new System.Drawing.Point(4, 36);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(929, 503);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Kết quả đăng ký học phần";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // resultCourseRegister_dataGridView
+            // 
+            this.resultCourseRegister_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultCourseRegister_dataGridView.Location = new System.Drawing.Point(29, 58);
+            this.resultCourseRegister_dataGridView.Name = "resultCourseRegister_dataGridView";
+            this.resultCourseRegister_dataGridView.Size = new System.Drawing.Size(862, 417);
+            this.resultCourseRegister_dataGridView.TabIndex = 15;
             // 
             // label17
             // 
@@ -520,13 +530,10 @@
             this.label17.TabIndex = 14;
             this.label17.Text = "Danh sách môn đã đăng ký";
             // 
-            // dataGridView4
+            // oracleCommandBuilder1
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(29, 58);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(862, 417);
-            this.dataGridView4.TabIndex = 15;
+            this.oracleCommandBuilder1.CatalogLocation = System.Data.Common.CatalogLocation.End;
+            this.oracleCommandBuilder1.CatalogSeparator = "@";
             // 
             // FormMainSinhVien
             // 
@@ -535,22 +542,24 @@
             this.ClientSize = new System.Drawing.Size(932, 538);
             this.Controls.Add(this.formMainSVTabControl);
             this.Name = "FormMainSinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portal - Cổng thông tin sinh viên";
+            this.Load += new System.EventHandler(this.formSinhVien_Loaded);
             this.formMainSVTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resultLookup_dataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KHMO_dataGridView)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseRegister_dataGridView)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultCourseRegister_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,43 +573,43 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private Oracle.ManagedDataAccess.Client.OracleCommandBuilder oracleCommandBuilder1;
-        private System.Windows.Forms.TextBox matKhauTextBox;
-        private System.Windows.Forms.TextBox luongTextBox;
-        private System.Windows.Forms.TextBox hoTenTextBox;
+        private System.Windows.Forms.TextBox SDT_TextBox;
+        private System.Windows.Forms.TextBox ngaySinh_TextBox;
+        private System.Windows.Forms.TextBox diaChi_TextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tenDNTextBox;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox maNVTextBox;
+        private System.Windows.Forms.TextBox gioiTinh_TextBox;
+        private System.Windows.Forms.TextBox hoTen_TextBox;
+        private System.Windows.Forms.TextBox maSV_TextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label maSV_label;
+        private System.Windows.Forms.TextBox dtbtl_TextBox;
+        private System.Windows.Forms.TextBox stctl_TextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox maNganh_TextBox;
+        private System.Windows.Forms.TextBox maCT_TextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button updateInfo_Btn;
+        private System.Windows.Forms.ComboBox year_ComboBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button lookUp_Btn;
+        private System.Windows.Forms.ComboBox semester_ComboBox;
+        private System.Windows.Forms.DataGridView resultLookup_dataGridView;
+        private System.Windows.Forms.DataGridView KHMO_dataGridView;
+        private System.Windows.Forms.Button lookupKHMO_Btn;
+        private System.Windows.Forms.ComboBox semesterKHMO_ComboBox;
+        private System.Windows.Forms.ComboBox yearKHM_ComboBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button courseRegister_Btn;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView courseRegister_dataGridView;
+        private System.Windows.Forms.DataGridView resultCourseRegister_dataGridView;
         private System.Windows.Forms.Label label17;
     }
 }

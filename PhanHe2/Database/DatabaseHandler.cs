@@ -13,8 +13,10 @@ namespace PhanHe2
     {
         public static OracleConnection Conn;
         private static string _connectionString = "";
-        private static string _username = "";
 
+
+        private static string _username = "";
+        private static string _dbOwner = "QLTruongHoc";
 
         public static ConnectionResult Connect(string username, string password)
         {
@@ -61,6 +63,8 @@ namespace PhanHe2
                 Conn.Close();
             }
         }
+
+        #region ...
 
         public static string GetUserRole(string username)
         {
@@ -279,6 +283,72 @@ namespace PhanHe2
             }
 
             int rowsAffected = command.ExecuteNonQuery();   
+            return (rowsAffected > 0);
+        }
+
+#endregion
+
+        public static bool IsStudent()
+        {
+            return _username.Contains("SV") ? true : false;
+        }
+
+        public static SinhVien GetStudentInfo()
+        {
+            string query = $"SELECT * FROM QLTruongHoc.SINHVIEN WHERE MASV=:username";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("username", _username));
+
+
+            OracleDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string masv = reader["MASV"].ToString();
+                string hoten = reader["HOTEN"].ToString();
+                string phai = reader["PHAI"].ToString();
+                string dchi = reader["DCHI"].ToString();
+                DateTime ngSinh = reader.GetDateTime(reader.GetOrdinal("NGSINH")); // Lấy giá trị kiểu DateTime
+                string sdt = reader["SDT"].ToString();
+                string mact = reader["MACT"].ToString();
+                string manganh = reader["MANGANH"].ToString();
+                int sotctl = reader.GetInt32(reader.GetOrdinal("SOTCTL")); // Lấy giá trị kiểu int
+                double dtbtl = reader.GetDouble(reader.GetOrdinal("DTBTL")); // Lấy giá trị kiểu double
+
+                SinhVien sv = new SinhVien
+                {
+                    MaCT = mact,
+                    MaSV = masv,
+                    MaNganh = manganh,
+                    HoTen = hoten,
+                    Phai = phai,
+                    DChi = dchi,
+                    NgSinh = ngSinh,
+                    SDT = sdt,
+                    SoTCTL = sotctl,
+                    DTBTL = dtbtl,
+                };
+
+                return sv;
+                
+            }
+
+            return null;
+
+        }
+
+        public static bool UpdateStudentInfo(string sdt, string diachi)
+        {
+            string query = $"UPDATE {_dbOwner}.SINHVIEN " +
+                            $"SET SDT = :sdt , DCHI = :dchi " +
+                            $"WHERE MASV = :masv";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("sdt", sdt));
+            command.Parameters.Add(new OracleParameter("dchi", diachi));
+            command.Parameters.Add(new OracleParameter("masv", _username));
+
+            int rowsAffected = command.ExecuteNonQuery();
             return (rowsAffected > 0);
         }
     }
