@@ -43,6 +43,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabPageDangKy = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.tabPageTTCaNhan = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPageNhanSu.SuspendLayout();
             this.tabPageSinhVien.SuspendLayout();
@@ -51,6 +53,7 @@
             this.tabPageKHMo.SuspendLayout();
             this.tabPhanCong.SuspendLayout();
             this.tabPageDangKy.SuspendLayout();
+            this.tabPageTTCaNhan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -62,6 +65,7 @@
             this.tabControl1.Controls.Add(this.tabPageKHMo);
             this.tabControl1.Controls.Add(this.tabPhanCong);
             this.tabControl1.Controls.Add(this.tabPageDangKy);
+            this.tabControl1.Controls.Add(this.tabPageTTCaNhan);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 30);
@@ -215,6 +219,26 @@
             this.panel7.Size = new System.Drawing.Size(1268, 609);
             this.panel7.TabIndex = 0;
             // 
+            // tabPageTTCaNhan
+            // 
+            this.tabPageTTCaNhan.Controls.Add(this.panel8);
+            this.tabPageTTCaNhan.Location = new System.Drawing.Point(4, 34);
+            this.tabPageTTCaNhan.Name = "tabPageTTCaNhan";
+            this.tabPageTTCaNhan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTTCaNhan.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageTTCaNhan.TabIndex = 7;
+            this.tabPageTTCaNhan.Text = "Thông tin cá nhân";
+            this.tabPageTTCaNhan.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1268, 609);
+            this.panel8.TabIndex = 0;
+            // 
             // FormManHinhChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,6 +260,7 @@
             this.tabPageKHMo.ResumeLayout(false);
             this.tabPhanCong.ResumeLayout(false);
             this.tabPageDangKy.ResumeLayout(false);
+            this.tabPageTTCaNhan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,5 +282,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TabPage tabPageDangKy;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TabPage tabPageTTCaNhan;
+        private System.Windows.Forms.Panel panel8;
     }
 }

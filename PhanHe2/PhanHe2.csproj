@@ -223,6 +223,18 @@
     <Compile Include="UI\NhanSu\FormNhanSu.Designer.cs">
       <DependentUpon>FormNhanSu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ThongTinCaNhan\FormCapNhatTTCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThongTinCaNhan\FormCapNhatTTCaNhan.Designer.cs">
+      <DependentUpon>FormCapNhatTTCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThongTinCaNhan\FormThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThongTinCaNhan\FormThongTinCaNhan.Designer.cs">
+      <DependentUpon>FormThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\DangKy\FormCapNhatDangKy.resx">
       <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +300,12 @@
     </Compile>
     <EmbeddedResource Include="UI\NhanSu\FormNhanSu.resx">
       <DependentUpon>FormNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThongTinCaNhan\FormCapNhatTTCaNhan.resx">
+      <DependentUpon>FormCapNhatTTCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThongTinCaNhan\FormThongTinCaNhan.resx">
+      <DependentUpon>FormThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>

@@ -23,6 +23,7 @@ namespace PhanHe2
         {
             btnThem.Hide();
             btnCapNhat.Hide();
+            btnXoa.Hide();
 
             try
             {
@@ -41,6 +42,10 @@ namespace PhanHe2
                                 break;
                             case "UPDATE":
                                 btnCapNhat.Show();
+                                _readOnly = false;
+                                break;
+                            case "DELETE":
+                                btnXoa.Show();
                                 _readOnly = false;
                                 break;
                         }
@@ -92,6 +97,39 @@ namespace PhanHe2
             {
                 DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
                 dataGridView1.DataSource = dataTable;
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng học phần này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                Dictionary<string, object> conditions = new Dictionary<string, object>
+                {
+                    { "MAHP", selectedRow.Cells["MAHP"].Value },
+                    { "MADV", selectedRow.Cells["MADV"].Value },
+                    { "HK", selectedRow.Cells["HK"].Value },
+                    { "NAM", selectedRow.Cells["NAM"].Value },
+                };
+
+                try
+                {
+                    bool deleteSuccess = DatabaseHandler.Delete(_roleTabPriv.Owner, _roleTabPriv.TableName, conditions);
+                    if (deleteSuccess)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Xóa lỗi: {ex.Message}");
+                }
             }
         }
     }

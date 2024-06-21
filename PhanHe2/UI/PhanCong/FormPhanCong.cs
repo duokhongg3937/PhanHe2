@@ -42,5 +42,20 @@ namespace PhanHe2
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
