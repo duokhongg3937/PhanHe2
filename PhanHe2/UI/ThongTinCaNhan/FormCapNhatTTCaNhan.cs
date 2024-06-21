@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
-namespace PhanHe2
+namespace PhanHe2.UI.ThongTinCaNhan
 {
-    public partial class FormCapNhatNhanSu : Form
+    public partial class FormCapNhatTTCaNhan : Form
     {
         private string _owner;
         private string _tableName;
         private DataRow _row;
         private List<string> _colsCanBeUpdated;
         private SortedDictionary<string, TextBox> colNameDict;
-        public FormCapNhatNhanSu(string owner, string tableName, DataRow row, List<string> colsCanBeUpdated)
+        public FormCapNhatTTCaNhan(string owner, string tableName, DataRow row, List<string> colsCanBeUpdated)
         {
             InitializeComponent();
             _owner = owner;
@@ -31,10 +30,9 @@ namespace PhanHe2
                 { "VAITRO", txtBoxVaiTro },
                 { "MADV", txtBoxMaDV },
             };
-
         }
 
-        private void FormCapNhatNhanSu_Load(object sender, EventArgs e)
+        private void FormCapNhatTTCaNhan_Load(object sender, System.EventArgs e)
         {
             foreach (DataColumn col in _row.Table.Columns)
             {
@@ -47,7 +45,13 @@ namespace PhanHe2
             }
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void btnOk_Click(object sender, System.EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
@@ -66,12 +70,6 @@ namespace PhanHe2
                 }
             }
 
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
             Close();
         }
     }

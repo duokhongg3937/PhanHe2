@@ -99,7 +99,32 @@ namespace PhanHe2
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng đơn vị này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                Dictionary<string, object> conditions = new Dictionary<string, object>
+                {
+                    { "MADC", selectedRow.Cells["MADV"].Value },
+                };
 
+                try
+                {
+                    bool deleteSuccess = DatabaseHandler.Delete(_roleTabPriv.Owner, _roleTabPriv.TableName, conditions);
+                    if (deleteSuccess)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Xóa lỗi: {ex.Message}");
+                }
+            }
         }
     }
 }

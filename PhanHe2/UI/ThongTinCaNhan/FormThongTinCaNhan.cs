@@ -1,27 +1,24 @@
-﻿using Oracle.ManagedDataAccess.Client;
-using PhanHe2.Models;
-using System;
-using System.Collections.Generic;
+﻿using PhanHe2.Models;
 using System.Data;
+using System;
 using System.Windows.Forms;
+using PhanHe2.UI.HocPhan;
+using System.Collections.Generic;
 
-namespace PhanHe2
+namespace PhanHe2.UI.ThongTinCaNhan
 {
-    public partial class FormNhanSu : Form
+    public partial class FormThongTinCaNhan : Form
     {
         private RoleTablePrivilege _roleTabPriv;
         private bool _readOnly = true;
-
-        public FormNhanSu(RoleTablePrivilege roleTabPriv)
+        public FormThongTinCaNhan(RoleTablePrivilege roleTabPriv)
         {
             InitializeComponent();
             _roleTabPriv = roleTabPriv;
         }
 
-        private void FormNhanSu_Load(object sender, EventArgs e)
+        private void FormThongTinCaNhan_Load(object sender, System.EventArgs e)
         {
-            btnThem.Hide();
-            btnXoa.Hide();
             btnCapNhat.Hide();
 
             try
@@ -31,20 +28,12 @@ namespace PhanHe2
 
                 foreach (RoleTablePrivilege roleTabPriv in Program.roleTablePrivileges)
                 {
-                    if (roleTabPriv.TableName == "NHANSU")
+                    if (roleTabPriv.TableName == "UV_XEMTHONGTINCANHAN")
                     {
                         switch (roleTabPriv.Privilege)
                         {
-                            case "INSERT":
-                                btnThem.Show();
-                                _readOnly = false;
-                                break;
                             case "UPDATE":
                                 btnCapNhat.Show();
-                                _readOnly = false;
-                                break;
-                            case "DELETE":
-                                btnXoa.Show();
                                 _readOnly = false;
                                 break;
                         }
@@ -64,7 +53,7 @@ namespace PhanHe2
             }
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click(object sender, System.EventArgs e)
         {
             List<string> colsCanBeUpdated = new List<string>();
 
@@ -76,25 +65,16 @@ namespace PhanHe2
                 }
             }
 
-            DataTable dataTable = (DataTable)(gridView.DataSource);
-            FormCapNhatNhanSu formCapNhatNhanSu = new FormCapNhatNhanSu(_roleTabPriv.Owner, _roleTabPriv.TableName, dataTable.Rows[0], colsCanBeUpdated);
-            DialogResult result = formCapNhatNhanSu.ShowDialog();
+            DataTable dataTable = (DataTable)gridView.DataSource;
+            DataRow selectedRow = dataTable.Rows[0];
+            FormCapNhatTTCaNhan formCapNhatTTCaNhan = new FormCapNhatTTCaNhan(_roleTabPriv.Owner, _roleTabPriv.TableName, selectedRow, colsCanBeUpdated);
+            DialogResult result = formCapNhatTTCaNhan.ShowDialog();
 
             if (result == DialogResult.OK)
             {
                 dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
                 gridView.DataSource = dataTable;
             }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

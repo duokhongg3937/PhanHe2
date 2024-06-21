@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhanHe2.UI.ThongTinCaNhan;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -15,6 +16,8 @@ namespace PhanHe2
             {
                 { "PHANCONG", tabPhanCong },
                 { "DANGKY", tabPageDangKy },
+                { "NHANSU", tabPageNhanSu },
+                { "UV_XEMTHONGTINCANHAN", tabPageTTCaNhan }
             };
         }
 
@@ -28,6 +31,9 @@ namespace PhanHe2
         {
             tabControl1.TabPages.RemoveByKey("tabPhanCong");
             tabControl1.TabPages.RemoveByKey("tabPageDangKy");
+            tabControl1.TabPages.RemoveByKey("tabPageNhanSu");
+            tabControl1.TabPages.RemoveByKey("tabPageTTCaNhan");
+
             foreach(var roleTablePriv in Program.roleTablePrivileges)
             {
                 if (roleTablePriv.Privilege == "SELECT")
@@ -40,11 +46,13 @@ namespace PhanHe2
                             formSinhVien.Show();
                             break;
                         case "UV_XEMTHONGTINCANHAN":
-                            FormNhanSu formThongTinCaNhan = new FormNhanSu(roleTablePriv) { TopLevel = false };
-                            panel1.Controls.Add(formThongTinCaNhan);
+                            tabControl1.TabPages.Add(_backupTabs["UV_XEMTHONGTINCANHAN"]);
+                            FormThongTinCaNhan formThongTinCaNhan = new FormThongTinCaNhan(roleTablePriv) { TopLevel = false };
+                            panel8.Controls.Add(formThongTinCaNhan);
                             formThongTinCaNhan.Show();
                             break;
                         case "NHANSU":
+                            tabControl1.TabPages.Add(_backupTabs["NHANSU"]);
                             FormNhanSu formNhanSu = new FormNhanSu(roleTablePriv) { TopLevel = false };
                             panel1.Controls.Add(formNhanSu);
                             formNhanSu.Show();
