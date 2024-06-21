@@ -225,7 +225,7 @@
             this.MinimizeBox = false;
             this.Name = "FormManHinhChinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormNVCoBan";
+            this.Text = "Hệ thống quản lý dữ liệu nội bộ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormManHinhChinh_FormClosing);
             this.Load += new System.EventHandler(this.FormManHinhChinh_Load);
             this.tabControl1.ResumeLayout(false);

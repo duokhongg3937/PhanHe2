@@ -101,6 +101,48 @@
     <Compile Include="UI\DangKy\FormDangKy.Designer.cs">
       <DependentUpon>FormDangKy.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DangKy\FormThemDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DangKy\FormThemDangKy.Designer.cs">
+      <DependentUpon>FormThemDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DonVi\FormCapNhatDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DonVi\FormCapNhatDonVi.Designer.cs">
+      <DependentUpon>FormCapNhatDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DonVi\FormThemDonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DonVi\FormThemDonVi.Designer.cs">
+      <DependentUpon>FormThemDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HocPhan\FormCapNhatHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HocPhan\FormCapNhatHocPhan.Designer.cs">
+      <DependentUpon>FormCapNhatHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HocPhan\FormThemHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HocPhan\FormThemHocPhan.Designer.cs">
+      <DependentUpon>FormThemHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\KeHoachMo\FormCapNhatKeHoachMo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\KeHoachMo\FormCapNhatKeHoachMo.Designer.cs">
+      <DependentUpon>FormCapNhatKeHoachMo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\KeHoachMo\FormThemKeHoachMo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\KeHoachMo\FormThemKeHoachMo.Designer.cs">
+      <DependentUpon>FormThemKeHoachMo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PhanCong\FormPhanCong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +203,24 @@
     </Compile>
     <EmbeddedResource Include="UI\DangKy\FormCapNhatDangKy.resx">
       <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DonVi\FormCapNhatDonVi.resx">
+      <DependentUpon>FormCapNhatDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DonVi\FormThemDonVi.resx">
+      <DependentUpon>FormThemDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HocPhan\FormCapNhatHocPhan.resx">
+      <DependentUpon>FormCapNhatHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HocPhan\FormThemHocPhan.resx">
+      <DependentUpon>FormThemHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\KeHoachMo\FormCapNhatKeHoachMo.resx">
+      <DependentUpon>FormCapNhatKeHoachMo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\KeHoachMo\FormThemKeHoachMo.resx">
+      <DependentUpon>FormThemKeHoachMo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NhanSu\FormCapNhatNhanSu.resx">
       <DependentUpon>FormCapNhatNhanSu.cs</DependentUpon>
