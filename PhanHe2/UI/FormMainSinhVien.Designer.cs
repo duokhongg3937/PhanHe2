@@ -356,6 +356,7 @@
             this.lookUp_Btn.TabIndex = 4;
             this.lookUp_Btn.Text = "Tra cứu";
             this.lookUp_Btn.UseVisualStyleBackColor = false;
+            this.lookUp_Btn.Click += new System.EventHandler(this.lookUp_Btn_Click);
             // 
             // semester_ComboBox
             // 
@@ -424,6 +425,7 @@
             this.lookupKHMO_Btn.TabIndex = 10;
             this.lookupKHMO_Btn.Text = "Tra cứu";
             this.lookupKHMO_Btn.UseVisualStyleBackColor = false;
+            this.lookupKHMO_Btn.Click += new System.EventHandler(this.lookupKHMO_Btn_Click);
             // 
             // semesterKHMO_ComboBox
             // 

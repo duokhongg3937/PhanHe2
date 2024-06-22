@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PhanHe2
 {
@@ -304,8 +305,9 @@ namespace PhanHe2
             return (rowsAffected > 0);
         }
 
-#endregion
+        #endregion
 
+        #region related func for SINHVIEN portal
         public static bool IsStudent()
         {
             return _username.Contains("SV") ? true : false;
@@ -357,17 +359,202 @@ namespace PhanHe2
 
         public static bool UpdateStudentInfo(string sdt, string diachi)
         {
-            string query = $"UPDATE {_dbOwner}.SINHVIEN " +
-                            $"SET SDT = :sdt , DCHI = :dchi " +
+            string query = $"UPDATE QLTruongHoc.SINHVIEN " +
+                            $"SET SDT = :value1 , DCHI = :value2 " +
                             $"WHERE MASV = :masv";
 
             OracleCommand command = new OracleCommand(query, Conn);
-            command.Parameters.Add(new OracleParameter("sdt", sdt));
-            command.Parameters.Add(new OracleParameter("dchi", diachi));
+            command.Parameters.Add(new OracleParameter("value1", sdt));
+            command.Parameters.Add(new OracleParameter("value2", diachi));
             command.Parameters.Add(new OracleParameter("masv", _username));
 
             int rowsAffected = command.ExecuteNonQuery();
             return (rowsAffected > 0);
         }
+
+        public static DataTable GetAllCourseResult(int year, int semester)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            string query = @"
+                    SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, dk.DIEMTH, dk.DIEMQT, dk.DIEMCK, dk.DIEMTK
+                    FROM QLTruongHoc.DANGKY dk JOIN QLTruongHoc.HOCPHAN hp ON dk.MAHP = hp.MAHP
+                    WHERE dk.MASV = :userid
+            ";
+
+            // Nếu year khác -1, thêm điều kiện dk.NAM = year
+            if (year != -1)
+            {
+                query += " AND dk.NAM = :yearValue";
+            }
+
+            // Nếu semester khác -1, thêm điều kiện dk.HK = semester
+            if (semester != -1)
+            {
+                query += " AND dk.HK = :semesterValue";
+            }
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username)); 
+
+            // Thêm tham số yearValue nếu được sử dụng
+            if (year != -1)
+            {
+                command.Parameters.Add(new OracleParameter("yearValue", year));
+            }
+
+            // Thêm tham số semesterValue nếu được sử dụng
+            if (semester != -1)
+            {
+                command.Parameters.Add(new OracleParameter("semesterValue", semester));
+            }
+
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
+
+        public static List<string> GetAllYears_Student_Tab2()
+        {
+            List<string> res = new List<string>();
+
+                            string query = $"select distinct NAM from QLTruongHoc.DANGKY WHERE MASV = :userid";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+
+            OracleDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                res.Add(reader.GetInt32(reader.GetOrdinal("NAM")).ToString());
+
+            }
+
+            return res;
+        }
+
+        public static List<string> GetAllSemesters_Student_Tab2()
+        {
+            List<string> res = new List<string>();
+
+            string query = $"select distinct HK from QLTruongHoc.DANGKY WHERE MASV = :userid";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+
+            OracleDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                res.Add(reader.GetInt32(reader.GetOrdinal("HK")).ToString());
+
+            }
+
+            return res;
+        }
+
+        public static DataTable GetAll_KHMO_Tab3(int year, int semester)
+        {
+
+
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            string query = @"
+                                SELECT khm.NAM, khm.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, hp.SOSVTD
+                                FROM QLTruongHoc.HOCPHAN hp join QLTruongHoc.KHMO khm ON hp.MAHP = khm.MAHP
+                                WHERE khm.MACT = (SELECT MACT FROM QLTruongHoc.SINHVIEN WHERE MASV = :userid)
+            ";
+
+            // Nếu year khác -1, thêm điều kiện dk.NAM = year
+            if (year != -1)
+            {
+                query += " AND khm.NAM = :yearValue";
+            }
+
+            // Nếu semester khác -1, thêm điều kiện dk.HK = semester
+            if (semester != -1)
+            {
+                query += " AND khm.HK = :semesterValue";
+            }
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+            // Thêm tham số yearValue nếu được sử dụng
+            if (year != -1)
+            {
+                command.Parameters.Add(new OracleParameter("yearValue", year));
+            }
+
+            // Thêm tham số semesterValue nếu được sử dụng
+            if (semester != -1)
+            {
+                command.Parameters.Add(new OracleParameter("semesterValue", semester));
+            }
+
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
+        public static List<string> GetAllYears_KHMO_Tab3()
+        {
+            List<string> res = new List<string>();
+
+            string query = $"SELECT distinct NAM from QLTRuongHoc.KHMO WHERE MACT = (SELECT MACT FROM QLTruongHoc.SINHVIEN WHERE MASV = :userid)";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+
+            OracleDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                res.Add(reader.GetInt32(reader.GetOrdinal("NAM")).ToString());
+
+            }
+
+            return res;
+        }
+
+        public static List<string> GetAllSemesters_KHMO_Tab3()
+        {
+            List<string> res = new List<string>();
+
+            string query = $"SELECT distinct HK from QLTRuongHoc.KHMO WHERE MACT = (SELECT MACT FROM QLTruongHoc.SINHVIEN WHERE MASV = :userid)";
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+
+            OracleDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                res.Add(reader.GetInt32(reader.GetOrdinal("HK")).ToString());
+
+            }
+
+            return res;
+        }
+
+        #endregion
+
     }
+
+
+
 }
