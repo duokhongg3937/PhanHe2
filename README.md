@@ -29,6 +29,15 @@
  - [ ] INSERT, DELETE, UPDATE dữ liệu trong **PHANCONG** đối với học phần thuộc Văn phòng Khoa (DV001)
  - [ ] SELECT, INSERT, DELETE, UPDATE trong **NHANSU**
  - [ ] Xem toàn bộ CSDL
+
+### CS6: Người dùng có VAITRO là “Sinh viên” có quyền hạn: 
+- [X] Trên quan hệ SINHVIEN, sinh viên chỉ được xem thông tin của chính mình
+- [X] Được chỉnh sửa thông tin địa chỉ (ĐCHI) và số điện thoại liên lạc (ĐT) của chính sinh viên. 
+- [X] Xem danh sách tất cả học phần (HOCPHAN), kế hoạch mở môn (KHMO) của chương trình đào tạo mà sinh viên đang theo học.  // tab Kế hoạch mở
+- [ ] Thêm, Xóa các dòng dữ liệu đăng ký học phần (ĐANGKY) liên quan đến chính sinh viên đó trong học kỳ của năm học hiện tại (nếu thời điểm hiệu chỉnh đăng ký còn hợp lệ). 
+- [X] Sinh viên không được chỉnh sửa trên các trường liên quan đến điểm. 
+- [X] Sinh viên được Xem tất cả thông tin trên quan hệ ĐANGKY tại các dòng dữ liệu liên quan đến chính sinh viên. // Tab Tra cứu kết quả học tập
+
 ## Yêu cầu 2: Vận dụng mô hình điều khiển truy cập OLS
 
 ## Yêu cầu 3: Ghi nhật ký hệ thống 

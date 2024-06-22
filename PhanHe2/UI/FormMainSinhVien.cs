@@ -81,7 +81,7 @@ namespace PhanHe2.UI
             // Đánh số hàng
             for (int i = 0; i < viewTab2.Rows.Count; i++)
             {
-              viewTab2.Rows[i]["STT"] = i + 1;
+                viewTab2.Rows[i]["STT"] = i + 1;
             }
 
             resultLookup_dataGridView.DataSource = viewTab2;
@@ -139,16 +139,117 @@ namespace PhanHe2.UI
 
 
         #region Tabpage 4: Đăng ký học phần
+
+        private DataTable viewTab4_1;
+        private DataTable viewTab4_2;
+
+
         private void DKHP_TabPage_Loaded()
         {
+            // check ngày hiện tại => học kỳ + năm 
+            DateTime currentDate = DateTime.Now;
+            int day = currentDate.Day;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
 
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
+            {
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
+            }
+
+            // Kiểm tra có phải khoảng thời gian đăng ký/ hiệu chỉnh học phần hay không
+            bool canRegister = DatabaseHandler.CanRegisterCourses(day, month, year, semester);
+
+            if (canRegister)
+            {
+                viewTab4_1 = DatabaseHandler.GetResultCourseRegister(year, semester);
+
+                // Đánh số hàng
+                for (int i = 0; i < viewTab4_1.Rows.Count; i++)
+                {
+                    viewTab4_1.Rows[i]["STT"] = i + 1;
+                }
+
+                courseRegister1_dataGridView.DataSource = viewTab4_1;
+
+                viewTab4_2 = DatabaseHandler.GetAll_KHMO_UnRegister_Tab4(year, semester);
+
+                // Đánh số hàng
+                for (int i = 0; i < viewTab4_2.Rows.Count; i++)
+                {
+                    viewTab4_2.Rows[i]["STT"] = i + 1;
+                }
+
+                courseRegister2_dataGridView.DataSource = viewTab4_2;
+
+
+            } else
+            {
+                DKHP_heading1_label.Text = "Hiện tại chưa đến thời điểm đăng ký học phần!";
+                DKHP_heading1_label.ForeColor = Color.Red;
+
+                DKHP_heading2_label.Visible = false;
+                courseRegister1_dataGridView.Visible = false;
+                courseRegister2_dataGridView.Visible = false;
+                unRegister_Btn.Visible = false;
+                courseRegister_Btn.Visible = false;
+            }
         }
 
         #endregion
 
         #region Tabpage 5: Kết quả đăng ký học phần
+
+        private DataTable viewTab5;
+
         private void ResultDKHP_Tabpage_Loaded()
         {
+            // lấy ngày/tháng/năm hiện tại => học kỳ hiện tại
+            // tháng 1-4 => HK 1
+            // tháng 5-8 => HK 2
+            // tháng 9 -12 => HK3
+            // => HK, NAM -> get data from db
+
+            // Lấy ngày tháng năm hiện tại từ hệ thống
+            DateTime currentDate = DateTime.Now;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
+
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
+            {
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
+            }
+
+            viewTab5 = DatabaseHandler.GetResultCourseRegister(year, semester);
+
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab5.Rows.Count; i++)
+            {
+                viewTab5.Rows[i]["STT"] = i + 1;
+
+            }
+            resultCourseRegister_dataGridView.DataSource = viewTab5;
 
         }
 
@@ -233,6 +334,86 @@ namespace PhanHe2.UI
 
             KHMO_dataGridView.DataSource = viewTab3;
 
+        }
+
+        private void unRegister_Btn_Click(object sender, EventArgs e)
+        {
+            if (courseRegister1_dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một hàng trước khi tiếp tục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            foreach (DataGridViewRow row in courseRegister1_dataGridView.SelectedRows)
+            {
+                int nam = Convert.ToInt32(row.Cells["NAM"].Value); // Lấy giá trị của cột "NAM"
+                int hk = Convert.ToInt32(row.Cells["HK"].Value); // Lấy giá trị của cột "HK"
+                string maHP = row.Cells["MAHP"].Value.ToString(); // Lấy giá trị của cột "MAHP"
+
+                string tenHP = row.Cells["TENHP"].Value.ToString(); // Lấy giá trị của cột "TENHP"
+
+                var dk = new Models.DangKy
+                {
+                    Nam = nam,
+                    HK = hk,
+                    MaHP = maHP,
+                };
+
+                if (DatabaseHandler.HandleUnRegisterCourse(dk))
+                {
+                    //  hiển thị lên MessageBox
+                    string message = $"Hủy đăng ký học phần {tenHP} thành công!";
+                    MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ResultDKHP_Tabpage_Loaded();
+
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        } 
+
+        private void courseRegister_Btn_Click(object sender, EventArgs e)
+        {
+                if (courseRegister2_dataGridView.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một hàng trước khi tiếp tục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+            foreach (DataGridViewRow row in courseRegister2_dataGridView.SelectedRows)
+            {
+                int nam = Convert.ToInt32(row.Cells["NAM"].Value); // Lấy giá trị của cột "NAM"
+                int hk = Convert.ToInt32(row.Cells["HK"].Value); // Lấy giá trị của cột "HK"
+                string maHP = row.Cells["MAHP"].Value.ToString(); // Lấy giá trị của cột "MAHP"
+
+                string tenHP = row.Cells["TENHP"].Value.ToString(); // Lấy giá trị của cột "TENHP"
+
+                var dk = new Models.DangKy
+                {
+                    Nam = nam,
+                    HK = hk,
+                    MaHP = maHP,
+                };
+
+                if (DatabaseHandler.HandleRegisterCourse(dk))
+                {
+                    //  hiển thị lên MessageBox
+                    string message = $"Đăng ký học phần {tenHP} thành công!";
+                    MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ResultDKHP_Tabpage_Loaded();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
