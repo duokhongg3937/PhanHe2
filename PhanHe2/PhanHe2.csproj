@@ -165,11 +165,23 @@
     <Compile Include="UI\FormUpdate\FormUpdateStudentInfo.Designer.cs">
       <DependentUpon>FormUpdateStudentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PhanCong\FormCapNhatPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhanCong\FormCapNhatPhanCong.Designer.cs">
+      <DependentUpon>FormCapNhatPhanCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PhanCong\FormPhanCong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhanCong\FormPhanCong.Designer.cs">
       <DependentUpon>FormPhanCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PhanCong\FormThemPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhanCong\FormThemPhanCong.Designer.cs">
+      <DependentUpon>FormThemPhanCong.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SinhVien\FormSinhVien.cs">
       <SubType>Form</SubType>
@@ -283,8 +295,14 @@
     <EmbeddedResource Include="UI\FormManHinhChinh.resx">
       <DependentUpon>FormManHinhChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhanCong\FormCapNhatPhanCong.resx">
+      <DependentUpon>FormCapNhatPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\PhanCong\FormPhanCong.resx">
       <DependentUpon>FormPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhanCong\FormThemPhanCong.resx">
+      <DependentUpon>FormThemPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SinhVien\FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
