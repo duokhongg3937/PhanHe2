@@ -256,6 +256,7 @@ namespace PhanHe2.UI
 
         #endregion
 
+        #region Xử lý tra cứu tab 2 + tab 3
         private void lookUp_Btn_Click(object sender, EventArgs e)
         {
             // tab 2
@@ -335,7 +336,9 @@ namespace PhanHe2.UI
             KHMO_dataGridView.DataSource = viewTab3;
 
         }
+        #endregion
 
+        #region Xử lý đăng ký + hủy đăng ký học phần
         private void unRegister_Btn_Click(object sender, EventArgs e)
         {
             if (courseRegister1_dataGridView.SelectedRows.Count == 0)
@@ -366,6 +369,7 @@ namespace PhanHe2.UI
                     string message = $"Hủy đăng ký học phần {tenHP} thành công!";
                     MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    DKHP_TabPage_Loaded();
                     ResultDKHP_Tabpage_Loaded();
 
                 }
@@ -405,6 +409,7 @@ namespace PhanHe2.UI
                     string message = $"Đăng ký học phần {tenHP} thành công!";
                     MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    DKHP_TabPage_Loaded();
                     ResultDKHP_Tabpage_Loaded();
 
 
@@ -415,5 +420,7 @@ namespace PhanHe2.UI
                 }
             }
         }
+
+        #endregion
     }
 }

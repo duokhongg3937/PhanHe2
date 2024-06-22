@@ -487,9 +487,9 @@
             this.DKHP_heading2_label.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DKHP_heading2_label.Location = new System.Drawing.Point(22, 271);
             this.DKHP_heading2_label.Name = "DKHP_heading2_label";
-            this.DKHP_heading2_label.Size = new System.Drawing.Size(157, 18);
+            this.DKHP_heading2_label.Size = new System.Drawing.Size(135, 18);
             this.DKHP_heading2_label.TabIndex = 18;
-            this.DKHP_heading2_label.Text = "Danh sách môn còn lại";
+            this.DKHP_heading2_label.Text = "Danh sách môn mở";
             // 
             // courseRegister2_dataGridView
             // 

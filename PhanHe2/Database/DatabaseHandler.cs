@@ -681,42 +681,110 @@ namespace PhanHe2
             return false;  // Ngày hiện tại không nằm trong khoảng ngày bắt đầu và kết thúc của sự kiện DKHP
         }
 
-        public static DataTable GetAll_KHMO_UnRegister_Tab4(int year, int semester)
+        public static DataTable _GetAll_KHMO_UnRegister_Tab4(int year, int semester)
         {
-
-
             DataTable dataTable = new DataTable();
 
             // Thêm một cột mới để lưu số thứ tự
             dataTable.Columns.Add("STT", typeof(int));
 
-            OracleCommand cmd = new OracleCommand("UP_GET_FILTERED_COURSES", Conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            string mact = GetMaCT();
 
-            // Parameters
-            cmd.Parameters.Add("year_param", OracleDbType.Int32).Value = year;
-            cmd.Parameters.Add("semester_param", OracleDbType.Int32).Value = semester;
-            cmd.Parameters.Add("userid_param", OracleDbType.Varchar2).Value = _username;
+            string query = @"
+               SELECT khm.NAM, khm.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, khm.MACT
+        FROM QLTruongHoc.HOCPHAN hp 
+        JOIN QLTruongHoc.KHMO khm ON hp.MAHP = khm.MAHP
+        WHERE TO_CHAR(khm.MACT) = TO_CHAR(:mactValue)
+            AND TO_NUMBER(khm.NAM) = TO_NUMBER(:year1) 
+            AND TO_NUMBER(khm.HK) = TO_NUMBER(:semester1)
+            AND hp.MAHP NOT IN
+        (
+        SELECT hp.MAHP
+        FROM QLTruongHoc.HOCPHAN hp 
+        JOIN QLTruongHoc.DANGKY dk ON hp.MAHP = dk.MAHP
+        WHERE TO_CHAR(dk.MASV)= TO_CHAR(:userid2) 
+            AND TO_NUMBER(dk.NAM) = TO_NUMBER(:year2) 
+            AND TO_NUMBER(dk.HK) = TO_NUMBER(:semester2)
+        )
+";
 
-            // Output parameter
-            OracleParameter resultParam = new OracleParameter("result_cursor", OracleDbType.RefCursor);
-            resultParam.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(resultParam);
-
-            try
             {
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                adapter.Fill(dataTable);
+                using (OracleCommand command = new OracleCommand(query, Conn))
+                {
+                    command.Parameters.Add(new OracleParameter("userid2", _username));
+                    command.Parameters.Add(new OracleParameter("mactValue", OracleDbType.Varchar2) { Value = mact });
+
+                    // Chuyển đổi year và semester sang kiểu NUMBER trước khi thêm vào parameters
+                    command.Parameters.Add(new OracleParameter("year1", OracleDbType.Int32) { Value = year });
+                    command.Parameters.Add(new OracleParameter("year2", OracleDbType.Int32) { Value = year });
+                    command.Parameters.Add(new OracleParameter("semester1", OracleDbType.Int32) { Value = semester });
+                    command.Parameters.Add(new OracleParameter("semester2", OracleDbType.Int32) { Value = semester });
+
+                    try
+                    {
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dataTable);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                        // Xử lý ngoại lệ nếu cần thiết
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
-                // Xử lý ngoại lệ nếu cần thiết
-            }
+
 
 
             return dataTable;
         }
+
+        public static DataTable GetAll_KHMO_UnRegister_Tab4(int year, int semester)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            string mact = GetMaCT();
+
+            string query = @"
+               SELECT khm.NAM, khm.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, khm.MACT
+        FROM QLTruongHoc.HOCPHAN hp 
+        JOIN QLTruongHoc.KHMO khm ON hp.MAHP = khm.MAHP
+        WHERE TO_CHAR(khm.MACT) = TO_CHAR(:mactValue)
+            AND TO_NUMBER(khm.NAM) = TO_NUMBER(:year1) 
+            AND TO_NUMBER(khm.HK) = TO_NUMBER(:semester1)
+         
+";
+
+            {
+                using (OracleCommand command = new OracleCommand(query, Conn))
+                {
+                    command.Parameters.Add(new OracleParameter("mactValue", OracleDbType.Varchar2) { Value = mact });
+
+                    // Chuyển đổi year và semester sang kiểu NUMBER trước khi thêm vào parameters
+                    command.Parameters.Add(new OracleParameter("year1", OracleDbType.Int32) { Value = year });
+                    command.Parameters.Add(new OracleParameter("semester1", OracleDbType.Int32) { Value = semester });
+
+                    try
+                    {
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dataTable);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                        // Xử lý ngoại lệ nếu cần thiết
+                    }
+                }
+            }
+
+
+
+            return dataTable;
+        }
+
+
 
         public static bool HandleUnRegisterCourse(DangKy dk)
         {
