@@ -365,23 +365,52 @@ namespace PhanHe2
             return (rowsAffected > 0);
         }
 
-        public static DataTable GetAllCourseResult()
+        public static DataTable GetAllCourseResult(int year, int semester)
         {
             DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
             string query = @"
-                            SELECT hp.MAHP, hp.TENHP, hp.SOTC, dk.DIEMTH, dk.DIEMQT, dk.DIEMCK, dk.DIEMTK
-                            FROM QLTruongHoc.DANGKY dk JOIN QLTruongHoc.HOCPHAN hp ON dk.MAHP = hp.MAHP
-                            WHERE dk.MASV = :userid
+                    SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, dk.DIEMTH, dk.DIEMQT, dk.DIEMCK, dk.DIEMTK
+                    FROM QLTruongHoc.DANGKY dk JOIN QLTruongHoc.HOCPHAN hp ON dk.MAHP = hp.MAHP
+                    WHERE dk.MASV = :userid
             ";
 
+            // Nếu year khác -1, thêm điều kiện dk.NAM = year
+            if (year != -1)
+            {
+                query += " AND dk.NAM = :yearValue";
+            }
+
+            // Nếu semester khác -1, thêm điều kiện dk.HK = semester
+            if (semester != -1)
+            {
+                query += " AND dk.HK = :semesterValue";
+            }
+
             OracleCommand command = new OracleCommand(query, Conn);
-            command.Parameters.Add(new OracleParameter("username", _username));
+            command.Parameters.Add(new OracleParameter("userid", _username)); 
+
+            // Thêm tham số yearValue nếu được sử dụng
+            if (year != -1)
+            {
+                command.Parameters.Add(new OracleParameter("yearValue", year));
+            }
+
+            // Thêm tham số semesterValue nếu được sử dụng
+            if (semester != -1)
+            {
+                command.Parameters.Add(new OracleParameter("semesterValue", semester));
+            }
 
             OracleDataAdapter adapter = new OracleDataAdapter(command);
             adapter.Fill(dataTable);
 
             return dataTable;
         }
+
 
         public static List<string> GetAllYears_Student_Tab2()
         {
@@ -425,19 +454,47 @@ namespace PhanHe2
             return res;
         }
 
-        public static DataTable GetAll_KHMO_Tab3()
+        public static DataTable GetAll_KHMO_Tab3(int year, int semester)
         {
 
 
-                            DataTable dataTable = new DataTable();
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
             string query = @"
                                 SELECT khm.NAM, khm.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, hp.SOSVTD
                                 FROM QLTruongHoc.HOCPHAN hp join QLTruongHoc.KHMO khm ON hp.MAHP = khm.MAHP
                                 WHERE khm.MACT = (SELECT MACT FROM QLTruongHoc.SINHVIEN WHERE MASV = :userid)
             ";
 
+            // Nếu year khác -1, thêm điều kiện dk.NAM = year
+            if (year != -1)
+            {
+                query += " AND khm.NAM = :yearValue";
+            }
+
+            // Nếu semester khác -1, thêm điều kiện dk.HK = semester
+            if (semester != -1)
+            {
+                query += " AND khm.HK = :semesterValue";
+            }
+
             OracleCommand command = new OracleCommand(query, Conn);
             command.Parameters.Add(new OracleParameter("userid", _username));
+
+            // Thêm tham số yearValue nếu được sử dụng
+            if (year != -1)
+            {
+                command.Parameters.Add(new OracleParameter("yearValue", year));
+            }
+
+            // Thêm tham số semesterValue nếu được sử dụng
+            if (semester != -1)
+            {
+                command.Parameters.Add(new OracleParameter("semesterValue", semester));
+            }
 
             OracleDataAdapter adapter = new OracleDataAdapter(command);
             adapter.Fill(dataTable);

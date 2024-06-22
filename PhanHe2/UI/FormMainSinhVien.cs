@@ -60,6 +60,9 @@ namespace PhanHe2.UI
         {
             FormUpdateStudentInfo updateForm = new FormUpdateStudentInfo(student);
             updateForm.ShowDialog();
+
+            // reload info
+            StudentInfo_TabPage_Loaded();
         }
 
         #endregion
@@ -72,7 +75,15 @@ namespace PhanHe2.UI
 
         private void LookupResult_TabPage_Loaded()
         {
-            viewTab2 = DatabaseHandler.GetAllCourseResult();
+            viewTab2 = DatabaseHandler.GetAllCourseResult(-1, -1);
+
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab2.Rows.Count; i++)
+            {
+              viewTab2.Rows[i]["STT"] = i + 1;
+            }
+
             resultLookup_dataGridView.DataSource = viewTab2;
 
             listYears_Tab2 = DatabaseHandler.GetAllYears_Student_Tab2();
@@ -100,7 +111,15 @@ namespace PhanHe2.UI
 
         private void KHMO_TabPage_Loaded()
         {
-            viewTab3 = DatabaseHandler.GetAll_KHMO_Tab3();
+
+            viewTab3 = DatabaseHandler.GetAll_KHMO_Tab3(-1, -1);
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab3.Rows.Count; i++)
+            {
+                viewTab3.Rows[i]["STT"] = i + 1;
+            }
+
             KHMO_dataGridView.DataSource = viewTab3;
 
             listYears_Tab3 = DatabaseHandler.GetAllYears_KHMO_Tab3();
@@ -135,5 +154,85 @@ namespace PhanHe2.UI
 
 
         #endregion
+
+        private void lookUp_Btn_Click(object sender, EventArgs e)
+        {
+            // tab 2
+
+            // get selected value of year and semeseter
+            string year = year_ComboBox.SelectedItem as string;
+            string semester = semester_ComboBox.SelectedItem as string;
+
+            if (year == null || semester == null) { return; }
+
+            int yearValue, semesterValue;
+            if (year.Equals("Tất cả")) {
+                yearValue = -1;
+            } else
+            {
+                yearValue = Int32.Parse(year);
+            }
+
+            if (semester.Equals("Tất cả"))
+            {
+                semesterValue = -1;
+            } else
+            {
+                semesterValue = Int32.Parse(semester);
+            }
+
+            viewTab2 = DatabaseHandler.GetAllCourseResult(yearValue, semesterValue);
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab2.Rows.Count; i++)
+            {
+                viewTab2.Rows[i]["STT"] = i + 1;
+            }
+
+            resultLookup_dataGridView.DataSource = viewTab2;
+        }
+
+        private void lookupKHMO_Btn_Click(object sender, EventArgs e)
+        {
+            // tab 3
+
+            // get selected value of year and semeseter
+            string year = yearKHM_ComboBox.SelectedItem as string;
+            string semester = semesterKHMO_ComboBox.SelectedItem as string;
+
+            if (year == null || semester == null) { return; }
+
+            int yearValue, semesterValue;
+            if (year.Equals("Tất cả"))
+            {
+                yearValue = -1;
+            }
+            else
+            {
+                yearValue = Int32.Parse(year);
+            }
+
+            if (semester.Equals("Tất cả"))
+            {
+                semesterValue = -1;
+            }
+            else
+            {
+                semesterValue = Int32.Parse(semester);
+            }
+
+            viewTab3 = DatabaseHandler.GetAll_KHMO_Tab3(yearValue, semesterValue);
+
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab3.Rows.Count; i++)
+            {
+                viewTab3.Rows[i]["STT"] = i + 1;
+            }
+
+
+            KHMO_dataGridView.DataSource = viewTab3;
+
+        }
     }
 }
