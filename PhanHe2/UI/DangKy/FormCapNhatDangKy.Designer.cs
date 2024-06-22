@@ -327,7 +327,7 @@
             this.Controls.Add(this.labelMaNV);
             this.Name = "FormCapNhatDangKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cập nhật đăng ký";
+            this.Text = "Cập nhật Đăng ký";
             this.Load += new System.EventHandler(this.FormCapNhatDangKy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numDTH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDQT)).EndInit();

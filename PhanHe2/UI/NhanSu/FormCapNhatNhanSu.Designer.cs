@@ -37,7 +37,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxPhuCap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxSDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +44,9 @@
             this.txtBoxMaDV = new System.Windows.Forms.TextBox();
             this.txtBoxVaiTro = new System.Windows.Forms.TextBox();
             this.txtBoxPhai = new System.Windows.Forms.TextBox();
-            this.txtBoxNgaySinh = new System.Windows.Forms.TextBox();
+            this.numPhuCap = new System.Windows.Forms.NumericUpDown();
+            this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhuCap)).BeginInit();
             this.SuspendLayout();
             // 
             // labelMaNV
@@ -138,16 +139,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Phụ cấp";
             // 
-            // txtBoxPhuCap
-            // 
-            this.txtBoxPhuCap.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxPhuCap.Location = new System.Drawing.Point(330, 73);
-            this.txtBoxPhuCap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxPhuCap.Name = "txtBoxPhuCap";
-            this.txtBoxPhuCap.ReadOnly = true;
-            this.txtBoxPhuCap.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxPhuCap.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -218,29 +209,49 @@
             this.txtBoxPhai.Size = new System.Drawing.Size(202, 28);
             this.txtBoxPhai.TabIndex = 2;
             // 
-            // txtBoxNgaySinh
+            // numPhuCap
             // 
-            this.txtBoxNgaySinh.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxNgaySinh.Location = new System.Drawing.Point(45, 357);
-            this.txtBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxNgaySinh.Name = "txtBoxNgaySinh";
-            this.txtBoxNgaySinh.ReadOnly = true;
-            this.txtBoxNgaySinh.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxNgaySinh.TabIndex = 2;
+            this.numPhuCap.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
+            this.numPhuCap.Increment = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.numPhuCap.Location = new System.Drawing.Point(330, 74);
+            this.numPhuCap.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
+            this.numPhuCap.Name = "numPhuCap";
+            this.numPhuCap.ReadOnly = true;
+            this.numPhuCap.Size = new System.Drawing.Size(202, 28);
+            this.numPhuCap.TabIndex = 26;
+            // 
+            // dateNgaySinh
+            // 
+            this.dateNgaySinh.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
+            this.dateNgaySinh.Location = new System.Drawing.Point(45, 357);
+            this.dateNgaySinh.MaxDate = new System.DateTime(2015, 12, 31, 0, 0, 0, 0);
+            this.dateNgaySinh.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dateNgaySinh.Name = "dateNgaySinh";
+            this.dateNgaySinh.Size = new System.Drawing.Size(200, 28);
+            this.dateNgaySinh.TabIndex = 25;
+            this.dateNgaySinh.Value = new System.DateTime(2015, 12, 31, 0, 0, 0, 0);
             // 
             // FormCapNhatNhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 591);
+            this.Controls.Add(this.numPhuCap);
+            this.Controls.Add(this.dateNgaySinh);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtBoxMaDV);
             this.Controls.Add(this.txtBoxVaiTro);
             this.Controls.Add(this.txtBoxSDT);
-            this.Controls.Add(this.txtBoxPhuCap);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBoxNgaySinh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBoxPhai);
             this.Controls.Add(this.label2);
@@ -257,6 +268,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật nhân sự";
             this.Load += new System.EventHandler(this.FormCapNhatNhanSu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numPhuCap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +285,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxPhuCap;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxSDT;
         private System.Windows.Forms.Label label3;
@@ -281,6 +292,7 @@
         private System.Windows.Forms.TextBox txtBoxMaDV;
         private System.Windows.Forms.TextBox txtBoxVaiTro;
         private System.Windows.Forms.TextBox txtBoxPhai;
-        private System.Windows.Forms.TextBox txtBoxNgaySinh;
+        private System.Windows.Forms.NumericUpDown numPhuCap;
+        private System.Windows.Forms.DateTimePicker dateNgaySinh;
     }
 }

@@ -210,6 +210,7 @@
             this.Controls.Add(this.txtBoxMaHP);
             this.Controls.Add(this.labelMaNV);
             this.Name = "FormThemHocPhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormThemHocPhan";
             ((System.ComponentModel.ISupportInitialize)(this.numSOSVTD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSTTH)).EndInit();

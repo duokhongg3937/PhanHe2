@@ -35,7 +35,7 @@ namespace PhanHe2.UI
         }
 
         // variables
-        SinhVien student;
+        PhanHe2.Models.SinhVien student;
 
 
         #region Tabpage 1: student info

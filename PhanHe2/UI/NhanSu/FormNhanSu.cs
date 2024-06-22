@@ -76,8 +76,10 @@ namespace PhanHe2
                 }
             }
 
+            DataGridViewRow selectedRow = gridView.SelectedRows[0];
+
             DataTable dataTable = (DataTable)(gridView.DataSource);
-            FormCapNhatNhanSu formCapNhatNhanSu = new FormCapNhatNhanSu(_roleTabPriv.Owner, _roleTabPriv.TableName, dataTable.Rows[0], colsCanBeUpdated);
+            FormCapNhatNhanSu formCapNhatNhanSu = new FormCapNhatNhanSu(_roleTabPriv.Owner, _roleTabPriv.TableName, selectedRow, colsCanBeUpdated);
             DialogResult result = formCapNhatNhanSu.ShowDialog();
 
             if (result == DialogResult.OK)
