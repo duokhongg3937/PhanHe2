@@ -268,9 +268,16 @@ namespace PhanHe2
                 int rowsAffected = command.ExecuteNonQuery();
                 return rowsAffected > 0;
             } 
-            catch (Exception ex)
+            catch (OracleException ex)
             {
-                MessageBox.Show($"Exception: {ex.Message}");
+                if (ex.ErrorCode == 28815)
+                {
+                    MessageBox.Show("Không thể thêm do không trong thời gian hiệu chỉnh");
+                }
+                else
+                {
+                    MessageBox.Show($"Exception: {ex.Message}");
+                }
                 return false;
             }
         }

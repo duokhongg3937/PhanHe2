@@ -83,7 +83,7 @@ namespace PhanHe2
                 {
                     { "MAGV", selectedRow.Cells["MAGV"].Value },
                     { "MAHP", selectedRow.Cells["MAHP"].Value },
-                    { "MADV", selectedRow.Cells["MADV"].Value },
+                    { "MACT", selectedRow.Cells["MACT"].Value },
                     { "HK", selectedRow.Cells["HK"].Value },
                     { "NAM", selectedRow.Cells["NAM"].Value },
                 };
@@ -94,6 +94,8 @@ namespace PhanHe2
                     if (deleteSuccess)
                     {
                         MessageBox.Show("Xóa thành công");
+                        DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                        dataGridView1.DataSource = dataTable;
                     }
                     else
                     {
@@ -105,6 +107,8 @@ namespace PhanHe2
                     MessageBox.Show($"Xóa lỗi: {ex.Message}");
                 }
             }
+
+
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -144,7 +148,7 @@ namespace PhanHe2
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkBox1.Checked && (Program.role == "C##RL_GIAOVU" || Program.role == "C##RL_TRUONGKHOA"))
             {
                 _dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName, "MAHP IN (SELECT MAHP FROM QLTRUONGHOC.HOCPHAN WHERE MADV = 'DV001')");
                 dataGridView1.DataSource = _dataTable;

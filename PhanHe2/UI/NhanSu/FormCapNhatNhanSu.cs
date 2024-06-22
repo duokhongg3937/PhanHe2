@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PhanHe2
@@ -9,10 +10,10 @@ namespace PhanHe2
     {
         private string _owner;
         private string _tableName;
-        private DataRow _row;
+        private DataGridViewRow _row;
         private List<string> _colsCanBeUpdated;
-        private SortedDictionary<string, TextBox> colNameDict;
-        public FormCapNhatNhanSu(string owner, string tableName, DataRow row, List<string> colsCanBeUpdated)
+        private SortedDictionary<string, Control> _colNameDict;
+        public FormCapNhatNhanSu(string owner, string tableName, DataGridViewRow row, List<string> colsCanBeUpdated)
         {
             InitializeComponent();
             _owner = owner;
@@ -20,13 +21,13 @@ namespace PhanHe2
             _row = row;
             _colsCanBeUpdated = colsCanBeUpdated;
 
-            colNameDict = new SortedDictionary<string, TextBox>
+            _colNameDict = new SortedDictionary<string, Control>
             {
                 { "MANV", txtBoxMaNV },
                 { "HOTEN", txtBoxHoTen },
                 { "PHAI", txtBoxPhai },
-                { "NGSINH", txtBoxNgaySinh },
-                { "PHUCAP", txtBoxPhuCap },
+                { "NGSINH", dateNgaySinh },
+                { "PHUCAP", numPhuCap },
                 { "SDT", txtBoxSDT },
                 { "VAITRO", txtBoxVaiTro },
                 { "MADV", txtBoxMaDV },
@@ -36,14 +37,46 @@ namespace PhanHe2
 
         private void FormCapNhatNhanSu_Load(object sender, EventArgs e)
         {
-            foreach (DataColumn col in _row.Table.Columns)
+            foreach (DataGridViewCell cell in _row.Cells)
             {
-                colNameDict[col.ColumnName].Text = _row[col.ColumnName].ToString();
+                if (_colNameDict[cell.OwningColumn.Name] is NumericUpDown numericUpDown)
+                {
+                    numericUpDown.Value = Convert.ToDecimal(cell.Value);
+                }
+                else
+                {
+                    _colNameDict[cell.OwningColumn.Name].Text = cell.Value.ToString();
+                }
             }
 
-            foreach (string colName in _colsCanBeUpdated)
+            if (_colsCanBeUpdated.Count == 0)
             {
-                colNameDict[colName].ReadOnly = false;
+                _colsCanBeUpdated = _colNameDict.Keys.ToList();
+                foreach (Control control in _colNameDict.Values)
+                {
+                    if (control is TextBox txtBox && txtBox != txtBoxMaNV)
+                    {
+                        txtBox.ReadOnly = false;
+                    }
+                    else if (control is NumericUpDown numericUpDown)
+                    {
+                        numericUpDown.ReadOnly = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (string colName in _colsCanBeUpdated)
+                {
+                    if (_colNameDict[colName] is TextBox txtBox && colName != "MANV")
+                    {
+                        txtBox.ReadOnly = false;
+                    }
+                    else if (_colNameDict[colName] is NumericUpDown numericUpDown)
+                    {
+                        numericUpDown.ReadOnly = false;
+                    }
+                }
             }
         }
 
@@ -53,16 +86,24 @@ namespace PhanHe2
 
             foreach (string colName in _colsCanBeUpdated)
             {
-                string updatedValue = colNameDict[colName].Text.ToString();
-                bool updateSuccess = DatabaseHandler.UpdateCell(_owner, _tableName, colName, updatedValue);
+                object updatedValue = null;
 
-                if (updateSuccess)
+                if (_colNameDict[colName] is TextBox textBox) updatedValue = textBox.Text;
+                else if (_colNameDict[colName] is NumericUpDown numericUpDown) updatedValue = numericUpDown.Value;
+                else if (_colNameDict[colName] is DateTimePicker dateTimePicker) updatedValue = dateTimePicker.Value;
+
+                if (updatedValue.ToString() != _row.Cells[colName].Value.ToString())
                 {
-                    MessageBox.Show($"Update cột {colName} bảng {_tableName} thành công!", "Update thành công");
-                }
-                else
-                {
-                    MessageBox.Show($"Update cột {colName} bảng {_tableName} thất bại!", "Update thất bại");
+                    bool updateSuccess = DatabaseHandler.UpdateCell(_owner, _tableName, colName, updatedValue, "MANV", _colNameDict["MANV"].Text);
+
+                    if (updateSuccess)
+                    {
+                        MessageBox.Show($"Update cột {colName} bảng {_tableName} thành công!", "Update thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Update cột {colName} bảng {_tableName} thất bại!", "Update thất bại");
+                    }
                 }
             }
 

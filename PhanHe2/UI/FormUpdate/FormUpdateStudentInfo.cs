@@ -13,7 +13,7 @@ namespace PhanHe2.UI.FormUpdate
 {
     public partial class FormUpdateStudentInfo : Form
     {
-        public FormUpdateStudentInfo(SinhVien student)
+        public FormUpdateStudentInfo(PhanHe2.Models.SinhVien student)
         {
             InitializeComponent();
 

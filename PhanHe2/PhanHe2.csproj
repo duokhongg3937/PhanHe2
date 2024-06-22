@@ -165,6 +165,12 @@
     <Compile Include="UI\FormUpdate\FormUpdateStudentInfo.Designer.cs">
       <DependentUpon>FormUpdateStudentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NhanSu\FormThemNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NhanSu\FormThemNhanSu.Designer.cs">
+      <DependentUpon>FormThemNhanSu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PhanCong\FormCapNhatPhanCong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="UI\PhanCong\FormThemPhanCong.Designer.cs">
       <DependentUpon>FormThemPhanCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SinhVien\FormCapNhatSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SinhVien\FormCapNhatSinhVien.Designer.cs">
+      <DependentUpon>FormCapNhatSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SinhVien\FormSinhVien.cs">
       <SubType>Form</SubType>
@@ -235,6 +247,12 @@
     <Compile Include="UI\NhanSu\FormNhanSu.Designer.cs">
       <DependentUpon>FormNhanSu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SinhVien\FormThemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SinhVien\FormThemSinhVien.Designer.cs">
+      <DependentUpon>FormThemSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ThongTinCaNhan\FormCapNhatTTCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +267,9 @@
     </Compile>
     <EmbeddedResource Include="UI\DangKy\FormCapNhatDangKy.resx">
       <DependentUpon>FormCapNhatDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DangKy\FormThemDangKy.resx">
+      <DependentUpon>FormThemDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormMainSinhVien.resx">
       <DependentUpon>FormMainSinhVien.cs</DependentUpon>
@@ -295,6 +316,9 @@
     <EmbeddedResource Include="UI\FormManHinhChinh.resx">
       <DependentUpon>FormManHinhChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NhanSu\FormThemNhanSu.resx">
+      <DependentUpon>FormThemNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\PhanCong\FormCapNhatPhanCong.resx">
       <DependentUpon>FormCapNhatPhanCong.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhanCong\FormThemPhanCong.resx">
       <DependentUpon>FormThemPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SinhVien\FormCapNhatSinhVien.resx">
+      <DependentUpon>FormCapNhatSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SinhVien\FormSinhVien.resx">
       <DependentUpon>FormSinhVien.cs</DependentUpon>
@@ -318,6 +345,9 @@
     </Compile>
     <EmbeddedResource Include="UI\NhanSu\FormNhanSu.resx">
       <DependentUpon>FormNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SinhVien\FormThemSinhVien.resx">
+      <DependentUpon>FormThemSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ThongTinCaNhan\FormCapNhatTTCaNhan.resx">
       <DependentUpon>FormCapNhatTTCaNhan.cs</DependentUpon>

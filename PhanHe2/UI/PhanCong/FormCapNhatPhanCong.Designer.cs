@@ -212,6 +212,7 @@
             this.Controls.Add(this.txtBoxMaHP);
             this.Controls.Add(this.labelMaNV);
             this.Name = "FormCapNhatPhanCong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCapNhatPhanCong";
             this.Load += new System.EventHandler(this.FormCapNhatPhanCong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numNam)).EndInit();

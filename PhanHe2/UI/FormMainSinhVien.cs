@@ -27,7 +27,7 @@ namespace PhanHe2.UI
         }
 
         // variables
-        SinhVien student;
+        PhanHe2.Models.SinhVien student;
 
         private void AssignData_StudentInfo_TabPage()
         {

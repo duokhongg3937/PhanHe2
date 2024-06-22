@@ -1,4 +1,5 @@
 ﻿using PhanHe2.Models;
+using PhanHe2.UI.DangKy;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -126,7 +127,14 @@ namespace PhanHe2
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            FormThemDangKy formThemDangKy = new FormThemDangKy(_roleTabPriv.Owner, _roleTabPriv.TableName);
+            DialogResult result = formThemDangKy.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+                DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                dataGridView1.DataSource = dataTable;
+            }
         }
     }
 }
