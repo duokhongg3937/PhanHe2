@@ -210,7 +210,6 @@ namespace PhanHe2
 
             string query = $"UPDATE {owner}.{tableName} SET {updateClause} WHERE {conditionClause}";
 
-
             OracleCommand command = new OracleCommand(query, Conn);
 
             foreach (var update in updates)
@@ -230,6 +229,18 @@ namespace PhanHe2
         public static DataTable GetAll(string owner, string tableName)
         {
             string query = $"SELECT * FROM {owner}.{tableName}";
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            DataTable dataTable = new DataTable();
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
+        public static DataTable GetAll(string owner, string tableName, string condition)
+        {
+            string query = $"SELECT * FROM {owner}.{tableName} WHERE {condition}";
             OracleCommand command = new OracleCommand(query, Conn);
 
             DataTable dataTable = new DataTable();
