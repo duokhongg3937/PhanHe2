@@ -382,7 +382,7 @@ namespace PhanHe2
             string query = @"
                     SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, dk.DIEMTH, dk.DIEMQT, dk.DIEMCK, dk.DIEMTK
                     FROM QLTruongHoc.DANGKY dk JOIN QLTruongHoc.HOCPHAN hp ON dk.MAHP = hp.MAHP
-                    WHERE dk.MASV = :userid
+                    WHERE dk.MASV = :userid AND dk.MACT = :mact
             ";
 
             // Nếu year khác -1, thêm điều kiện dk.NAM = year
@@ -398,7 +398,9 @@ namespace PhanHe2
             }
 
             OracleCommand command = new OracleCommand(query, Conn);
-            command.Parameters.Add(new OracleParameter("userid", _username)); 
+            command.Parameters.Add(new OracleParameter("userid", _username));
+            command.Parameters.Add(new OracleParameter("mact", GetMaCT()));
+
 
             // Thêm tham số yearValue nếu được sử dụng
             if (year != -1)
@@ -412,9 +414,17 @@ namespace PhanHe2
                 command.Parameters.Add(new OracleParameter("semesterValue", semester));
             }
 
-            OracleDataAdapter adapter = new OracleDataAdapter(command);
-            adapter.Fill(dataTable);
 
+            try
+            {
+                OracleDataAdapter adapter = new OracleDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                // Xử lý ngoại lệ nếu cần thiết
+            }
             return dataTable;
         }
 
@@ -503,8 +513,17 @@ namespace PhanHe2
                 command.Parameters.Add(new OracleParameter("semesterValue", semester));
             }
 
-            OracleDataAdapter adapter = new OracleDataAdapter(command);
-            adapter.Fill(dataTable);
+
+            try
+            {
+                OracleDataAdapter adapter = new OracleDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                // Xử lý ngoại lệ nếu cần thiết
+            }
 
             return dataTable;
         }
@@ -551,39 +570,232 @@ namespace PhanHe2
             return res;
         }
 
+        public static string GetMaCT()
+        {
+            string mact = "";
+            try
+            {
+                string _query = @"
+                            SELECT MACT
+                            FROM QLTruongHoc.SINHVIEN
+                            WHERE MASV = :masv
+        ";
+
+                OracleCommand _command = new OracleCommand(_query, Conn);
+                _command.Parameters.Add(new OracleParameter("masv", _username));
+
+                OracleDataReader reader = _command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // Đọc giá trị MACT từ kết quả truy vấn và gán vào thuộc tính dk.MaCT
+                    mact = reader["MACT"].ToString();
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Xử lý exception nếu cần thiết
+                Console.WriteLine("Lỗi khi đọc MACT từ SINHVIEN: " + ex.Message);
+
+            }
+            return mact;
+        }
+
         public static DataTable GetResultCourseRegister(int year, int semester)
         {
             DataTable dataTable = new DataTable();
 
             // Thêm một cột mới để lưu số thứ tự
             dataTable.Columns.Add("STT", typeof(int));
+            string mact = GetMaCT();
+
 
             string query = @"
-                                SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH
+                                SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, dk.MACT
                                 FROM QLTruongHoc.HOCPHAN hp join QLTruongHoc.DANGKY dk ON hp.MAHP = dk.MAHP
-                                WHERE dk.MASV = :userid AND dk.NAM = :yearValue AND dk.HK = :semesterValue
+                                WHERE dk.MASV = :userid AND dk.NAM = :yearValue AND dk.HK = :semesterValue 
             ";
 
 
             OracleCommand command = new OracleCommand(query, Conn);
             command.Parameters.Add(new OracleParameter("userid", _username));
 
-            // Thêm tham số yearValue nếu được sử dụng
-            if (year != -1)
-            {
-                command.Parameters.Add(new OracleParameter("yearValue", year));
-            }
+            //command.Parameters.Add(new OracleParameter("mact", mact));
 
-            // Thêm tham số semesterValue nếu được sử dụng
-            if (semester != -1)
-            {
+            command.Parameters.Add(new OracleParameter("yearValue", year));        
                 command.Parameters.Add(new OracleParameter("semesterValue", semester));
-            }
 
-            OracleDataAdapter adapter = new OracleDataAdapter(command);
-            adapter.Fill(dataTable);
+
+            try
+            {
+                OracleDataAdapter adapter = new OracleDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                // Xử lý ngoại lệ nếu cần thiết
+            }
 
             return dataTable;
+        }
+
+        public static bool CanRegisterCourses(int day, int month, int year, int semester)
+        {
+            // Tạo đối tượng DateTime từ tham số day, month, year
+            DateTime currentDate = new DateTime(year, month, day);
+
+            // Chuẩn bị truy vấn để lấy NGAYBD và NGAYKT từ bảng sự kiện
+            string query = @"
+            SELECT NGAYBD, NGAYKT
+            FROM QLTruongHoc.SUKIEN
+            WHERE TENSK = 'DKHP' AND NAM = :year AND HK = :semester 
+        ";
+
+            using (OracleCommand command = new OracleCommand(query, Conn))
+            {
+                // Thêm tham số cho năm và học kỳ
+                command.Parameters.Add(":year", OracleDbType.Int32).Value = year;
+                command.Parameters.Add(":semester", OracleDbType.Int32).Value = semester;
+
+                // Đọc dữ liệu từ cơ sở dữ liệu
+                using (OracleDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DateTime ngayBD = reader.GetDateTime(0);
+                        DateTime ngayKT = reader.GetDateTime(1);
+
+                        // Kiểm tra ngày hiện tại có nằm trong khoảng ngày bắt đầu và kết thúc của sự kiện DKHP không
+                        if (currentDate >= ngayBD && currentDate <= ngayKT)
+                        {
+                            return true; // Ngày hiện tại nằm trong khoảng ngày bắt đầu và kết thúc của sự kiện DKHP
+                        }
+                    }
+                }
+            }
+        
+
+            return false;  // Ngày hiện tại không nằm trong khoảng ngày bắt đầu và kết thúc của sự kiện DKHP
+        }
+
+        public static DataTable GetAll_KHMO_UnRegister_Tab4(int year, int semester)
+        {
+
+
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            OracleCommand cmd = new OracleCommand("UP_GET_FILTERED_COURSES", Conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Parameters
+            cmd.Parameters.Add("year_param", OracleDbType.Int32).Value = year;
+            cmd.Parameters.Add("semester_param", OracleDbType.Int32).Value = semester;
+            cmd.Parameters.Add("userid_param", OracleDbType.Varchar2).Value = _username;
+
+            // Output parameter
+            OracleParameter resultParam = new OracleParameter("result_cursor", OracleDbType.RefCursor);
+            resultParam.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(resultParam);
+
+            try
+            {
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                // Xử lý ngoại lệ nếu cần thiết
+            }
+
+
+            return dataTable;
+        }
+
+        public static bool HandleUnRegisterCourse(DangKy dk)
+        {
+            bool success = false;
+
+            dk.MaCT = GetMaCT();
+            dk.MaSV = _username;
+
+            try
+            {
+                string deleteQuery = @"
+                                        DELETE FROM QLTruongHoc.DANGKY
+                                        WHERE MASV = :masv AND MAHP = :mahp AND NAM = :nam AND HK = :hk AND MACT = :mact
+    ";
+
+                OracleCommand deleteCommand = new OracleCommand(deleteQuery, Conn);
+                deleteCommand.Parameters.Add(new OracleParameter("masv", dk.MaSV));
+                deleteCommand.Parameters.Add(new OracleParameter("mahp", dk.MaHP));
+                deleteCommand.Parameters.Add(new OracleParameter("nam", dk.Nam));
+                deleteCommand.Parameters.Add(new OracleParameter("hk", dk.HK));
+                deleteCommand.Parameters.Add(new OracleParameter("mact", dk.MaCT));
+
+
+                int rowsDeleted = deleteCommand.ExecuteNonQuery();
+
+                if (rowsDeleted > 0)
+                {
+                    success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý exception nếu cần thiết
+                Console.WriteLine("Lỗi khi thực hiện thao tác xóa đăng ký học phần: " + ex.Message);
+            }
+
+            return success;
+
+
+        }
+
+        public static bool HandleRegisterCourse(DangKy dk)
+        {
+
+            bool success = false;
+
+            dk.MaSV = _username;
+            dk.MaCT = GetMaCT();
+
+            try
+            {
+                string query = @"
+                                INSERT INTO QLTruongHoc.DANGKY (MASV, MAHP, NAM, HK, MACT)
+                                VALUES (:masv, :mahp, :nam, :hk, :mact)
+        ";
+
+                OracleCommand command = new OracleCommand(query, Conn);
+                command.Parameters.Add(new OracleParameter("masv", dk.MaSV));
+                command.Parameters.Add(new OracleParameter("mahp", dk.MaHP));
+                command.Parameters.Add(new OracleParameter("nam", dk.Nam));
+                command.Parameters.Add(new OracleParameter("hk", dk.HK));
+                command.Parameters.Add(new OracleParameter("mact", dk.MaCT));
+
+                //  thực thi câu lệnh
+                int rowsInserted = command.ExecuteNonQuery();
+
+                if (rowsInserted > 0)
+                {
+                    success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý exception nếu cần thiết
+                Console.WriteLine("Lỗi khi thực hiện thao tác đăng ký học phần: " + ex.Message);
+
+            }
+
+            return success;
         }
 
         #endregion
