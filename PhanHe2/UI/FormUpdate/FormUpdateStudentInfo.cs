@@ -31,6 +31,8 @@ namespace PhanHe2.UI.FormUpdate
             {
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Đóng form hiện tại
+                this.Close();
             }
             else
             {
