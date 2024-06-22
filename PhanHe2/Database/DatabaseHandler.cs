@@ -544,6 +544,41 @@ namespace PhanHe2
             return res;
         }
 
+        public static DataTable GetResultCourseRegister(int year, int semester)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            string query = @"
+                                SELECT dk.NAM, dk.HK, hp.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH
+                                FROM QLTruongHoc.HOCPHAN hp join QLTruongHoc.DANGKY dk ON hp.MAHP = dk.MAHP
+                                WHERE dk.MASV = :userid AND dk.NAM = :yearValue AND dk.HK = :semesterValue
+            ";
+
+
+            OracleCommand command = new OracleCommand(query, Conn);
+            command.Parameters.Add(new OracleParameter("userid", _username));
+
+            // Thêm tham số yearValue nếu được sử dụng
+            if (year != -1)
+            {
+                command.Parameters.Add(new OracleParameter("yearValue", year));
+            }
+
+            // Thêm tham số semesterValue nếu được sử dụng
+            if (semester != -1)
+            {
+                command.Parameters.Add(new OracleParameter("semesterValue", semester));
+            }
+
+            OracleDataAdapter adapter = new OracleDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
         #endregion
 
     }

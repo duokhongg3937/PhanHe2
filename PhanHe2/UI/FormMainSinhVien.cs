@@ -147,8 +147,47 @@ namespace PhanHe2.UI
         #endregion
 
         #region Tabpage 5: Kết quả đăng ký học phần
+
+        private DataTable viewTab5;
+
         private void ResultDKHP_Tabpage_Loaded()
         {
+            // lấy ngày/tháng/năm hiện tại => học kỳ hiện tại
+            // tháng 1-4 => HK 1
+            // tháng 5-8 => HK 2
+            // tháng 9 -12 => HK3
+            // => HK, NAM -> get data from db
+
+            // Lấy ngày tháng năm hiện tại từ hệ thống
+            DateTime currentDate = DateTime.Now;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
+
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
+            {
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
+            }
+
+            viewTab5 = DatabaseHandler.GetResultCourseRegister(year, semester);
+
+
+            // Đánh số hàng
+            for (int i = 0; i < viewTab5.Rows.Count; i++)
+            {
+                viewTab5.Rows[i]["STT"] = i + 1;
+
+            }
+            resultCourseRegister_dataGridView.DataSource = viewTab5;
 
         }
 
