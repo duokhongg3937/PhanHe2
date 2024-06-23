@@ -305,6 +305,40 @@ namespace PhanHe2
             return (rowsAffected > 0);
         }
 
+        public static bool ExecuteCheckValidEnrollingTime(int hk, int nam)
+        {
+            OracleCommand command = new OracleCommand("SYS.UF_TRONGTHOIGIANDANGKY", Conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            OracleParameter returnValue = new OracleParameter
+            {
+                OracleDbType = OracleDbType.Int32,
+                Direction = ParameterDirection.ReturnValue
+            };
+            command.Parameters.Add(returnValue);
+
+            OracleParameter p_hk = new OracleParameter("p_hk", OracleDbType.Int32)
+            {
+                Direction = ParameterDirection.Input,
+                Value = hk
+            };
+            command.Parameters.Add(p_hk);
+
+            OracleParameter p_nam = new OracleParameter("p_nam", OracleDbType.Int32)
+            {
+                Direction = ParameterDirection.Input,
+                Value = nam
+            };
+            command.Parameters.Add(p_nam);
+
+            command.ExecuteNonQuery();
+
+            int result = Convert.ToInt32(returnValue.Value.ToString());
+            return (result == 1);
+        }
+
         #endregion
 
         #region related func for SINHVIEN portal

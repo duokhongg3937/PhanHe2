@@ -93,11 +93,16 @@ namespace PhanHe2
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng đăng ký này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            int currentYear = DateTime.Now.Year;
+            if (DatabaseHandler.ExecuteCheckValidEnrollingTime(1, currentYear) ||
+                DatabaseHandler.ExecuteCheckValidEnrollingTime(2, currentYear) ||
+                DatabaseHandler.ExecuteCheckValidEnrollingTime(3, currentYear))
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                Dictionary<string, object> conditions = new Dictionary<string, object>
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng đăng ký này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    Dictionary<string, object> conditions = new Dictionary<string, object>
                 {
                     { "MASV", selectedRow.Cells["MASV"].Value },
                     { "MAGV", selectedRow.Cells["MAGV"].Value },
@@ -107,33 +112,50 @@ namespace PhanHe2
                     { "MACT", selectedRow.Cells["MACT"].Value },
                 };
 
-                try
-                {
-                    bool deleteSuccess = DatabaseHandler.Delete(_roleTabPriv.Owner, _roleTabPriv.TableName, conditions);
-                    if (deleteSuccess)
+                    try
                     {
-                        MessageBox.Show("Xóa thành công");
+                        bool deleteSuccess = DatabaseHandler.Delete(_roleTabPriv.Owner, _roleTabPriv.TableName, conditions);
+                        if (deleteSuccess)
+                        {
+                            MessageBox.Show("Xóa thành công");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Xóa thất bại");
+                        MessageBox.Show($"Xóa lỗi: {ex.Message}");
                     }
-                } catch (Exception ex)
-                {
-                    MessageBox.Show($"Xóa lỗi: {ex.Message}");
                 }
             }
+            else
+            {
+                MessageBox.Show("Không thể thêm do không trong thời gian hiệu chỉnh");
+            }
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            FormThemDangKy formThemDangKy = new FormThemDangKy(_roleTabPriv.Owner, _roleTabPriv.TableName);
-            DialogResult result = formThemDangKy.ShowDialog();
-
-            if (result == DialogResult.OK)
+            int currentYear = DateTime.Now.Year;    
+            if (DatabaseHandler.ExecuteCheckValidEnrollingTime(1, currentYear) ||
+                DatabaseHandler.ExecuteCheckValidEnrollingTime(2, currentYear) || 
+                DatabaseHandler.ExecuteCheckValidEnrollingTime(3, currentYear))
             {
-                DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
-                dataGridView1.DataSource = dataTable;
+                FormThemDangKy formThemDangKy = new FormThemDangKy(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                DialogResult result = formThemDangKy.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                    dataGridView1.DataSource = dataTable;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thể thêm do không trong thời gian hiệu chỉnh");
             }
         }
     }
