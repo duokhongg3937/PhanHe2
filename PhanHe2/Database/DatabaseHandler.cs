@@ -813,6 +813,60 @@ namespace PhanHe2
                 }
             }
 
+            query = @"
+        
+        SELECT hp.MAHP
+        FROM QLTruongHoc.HOCPHAN hp 
+        JOIN QLTruongHoc.DANGKY dk ON hp.MAHP = dk.MAHP
+        WHERE TO_CHAR(dk.MASV)= TO_CHAR(:userid2) 
+            AND TO_NUMBER(dk.NAM) = TO_NUMBER(:year2) 
+            AND TO_NUMBER(dk.HK) = TO_NUMBER(:semester2)
+        
+";
+            List<string> queryList = new List<string>();
+
+            using (OracleCommand command = new OracleCommand(query, Conn))
+            {
+
+                // Chuyển đổi year và semester sang kiểu NUMBER trước khi thêm vào parameters
+                command.Parameters.Add(new OracleParameter("userid2", OracleDbType.Varchar2) { Value = _username });
+                command.Parameters.Add(new OracleParameter("year2", OracleDbType.Int32) { Value = year });
+                command.Parameters.Add(new OracleParameter("semester2", OracleDbType.Int32) { Value = semester });
+
+                try
+                {
+                    OracleDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string mahp = reader["MAHP"].ToString();
+                        queryList.Add(mahp);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                    // Xử lý ngoại lệ nếu cần thiết
+                }
+            }
+
+
+
+            // Duyệt qua danh sách query và xóa các row tương ứng trong DataTable
+            foreach (string item in queryList)
+            {
+                // Tìm kiếm xem item có tồn tại trong DataTable không
+                DataRow[] rows = dataTable.Select("MAHP = '" + item + "'");
+
+                // Nếu tìm thấy, xóa các row này
+                foreach (DataRow row in rows)
+                {
+                    dataTable.Rows.Remove(row);
+                }
+            }
+
 
 
             return dataTable;
