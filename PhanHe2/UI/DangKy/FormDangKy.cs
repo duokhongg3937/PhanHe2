@@ -64,39 +64,86 @@ namespace PhanHe2
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count <= 0)
+            // check ngày hiện tại => học kỳ + năm 
+            DateTime currentDate = DateTime.Now;
+            int day = currentDate.Day;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
+
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
             {
-                MessageBox.Show("Vui lòng chọn một dòng để cập nhật!");
-                return;
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
             }
 
-            List<string> colsCanBeUpdated = new List<string>();
-
-            foreach (RoleTablePrivilege priv in Program.roleTablePrivileges)
+            if (DatabaseHandler.CanRegisterCourses(day, month, year, semester))
             {
-                if (priv.TableName == _roleTabPriv.TableName && priv.ColumnName != null && priv.Privilege == "UPDATE")
+                if (dataGridView1.SelectedRows.Count <= 0)
                 {
-                    colsCanBeUpdated.Add(priv.ColumnName);
+                    MessageBox.Show("Vui lòng chọn một dòng để cập nhật!");
+                    return;
+                }
+
+                List<string> colsCanBeUpdated = new List<string>();
+
+                foreach (RoleTablePrivilege priv in Program.roleTablePrivileges)
+                {
+                    if (priv.TableName == _roleTabPriv.TableName && priv.ColumnName != null && priv.Privilege == "UPDATE")
+                    {
+                        colsCanBeUpdated.Add(priv.ColumnName);
+                    }
+                }
+
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                FormCapNhatDangKy formCapNhatDangKy = new FormCapNhatDangKy(_roleTabPriv, selectedRow, colsCanBeUpdated);
+                DialogResult result = formCapNhatDangKy.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                    dataGridView1.DataSource = dataTable;
                 }
             }
-
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-            FormCapNhatDangKy formCapNhatDangKy = new FormCapNhatDangKy(_roleTabPriv, selectedRow, colsCanBeUpdated);
-            DialogResult result = formCapNhatDangKy.ShowDialog();
-
-            if (result == DialogResult.OK)
+            else
             {
-                DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
-                dataGridView1.DataSource = dataTable;
+                MessageBox.Show("Không thể thêmƯ do không trong thời gian hiệu chỉnh");
             }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int currentYear = DateTime.Now.Year;
-            if (DatabaseHandler.ExecuteCheckValidEnrollingTime(1, currentYear) ||
-                DatabaseHandler.ExecuteCheckValidEnrollingTime(2, currentYear) ||
-                DatabaseHandler.ExecuteCheckValidEnrollingTime(3, currentYear))
+            // check ngày hiện tại => học kỳ + năm 
+            DateTime currentDate = DateTime.Now;
+            int day = currentDate.Day;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
+
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
+            {
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
+            }
+
+            if (DatabaseHandler.CanRegisterCourses(day, month, year, semester))
             {
                 DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng đăng ký này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -132,17 +179,34 @@ namespace PhanHe2
             }
             else
             {
-                MessageBox.Show("Không thể thêm do không trong thời gian hiệu chỉnh");
+                MessageBox.Show("Không thể xóa do không trong thời gian hiệu chỉnh");
             }
             
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int currentYear = DateTime.Now.Year;    
-            if (DatabaseHandler.ExecuteCheckValidEnrollingTime(1, currentYear) ||
-                DatabaseHandler.ExecuteCheckValidEnrollingTime(2, currentYear) || 
-                DatabaseHandler.ExecuteCheckValidEnrollingTime(3, currentYear))
+            // check ngày hiện tại => học kỳ + năm 
+            DateTime currentDate = DateTime.Now;
+            int day = currentDate.Day;
+            int year = currentDate.Year;
+            int month = currentDate.Month;
+
+            // Xác định học kỳ dựa trên tháng hiện tại
+            int semester;
+            if (month >= 1 && month <= 4)
+            {
+                semester = 1; // Học kỳ 1
+            }
+            else if (month >= 5 && month <= 8)
+            {
+                semester = 2; // Học kỳ 2
+            }
+            else // month >= 9 && month <= 12
+            {
+                semester = 3; // Học kỳ 3
+            }
+            if (DatabaseHandler.CanRegisterCourses(day, month, year, semester))
             {
                 FormThemDangKy formThemDangKy = new FormThemDangKy(_roleTabPriv.Owner, _roleTabPriv.TableName);
                 DialogResult result = formThemDangKy.ShowDialog();

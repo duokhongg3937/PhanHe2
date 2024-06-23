@@ -1,5 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using PhanHe2.Models;
+using PhanHe2.UI.NhanSu;
+using PhanHe2.UI.SinhVien;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -91,12 +93,46 @@ namespace PhanHe2
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muôn xóa dòng nhân sự này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DataGridViewRow selectedRow = gridView.SelectedRows[0];
+                Dictionary<string, object> conditions = new Dictionary<string, object>
+                {
+                    { "MANV", selectedRow.Cells["MANV"].Value }
+                };
 
+                try
+                {
+                    bool deleteSuccess = DatabaseHandler.Delete(_roleTabPriv.Owner, _roleTabPriv.TableName, conditions);
+                    if (deleteSuccess)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                        gridView.DataSource = dataTable;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Xóa lỗi: {ex.Message}");
+                }
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            FormThemNhanSu formThemNhanSu = new FormThemNhanSu(_roleTabPriv.Owner, _roleTabPriv.TableName);
+            DialogResult result = formThemNhanSu.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+                DataTable dataTable = DatabaseHandler.GetAll(_roleTabPriv.Owner, _roleTabPriv.TableName);
+                gridView.DataSource = dataTable;
+            }
         }
     }
 }

@@ -422,5 +422,11 @@ namespace PhanHe2.UI
         }
 
         #endregion
+
+        private void FormMainSinhVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            DatabaseHandler.Disconnect();
+        }
     }
 }

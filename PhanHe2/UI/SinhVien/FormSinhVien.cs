@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using PhanHe2.Models;
 using System.Collections.Generic;
 using PhanHe2.UI.SinhVien;
-using PhanHe2.UI.DangKy;
 
 namespace PhanHe2
 {

@@ -38,11 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxMaNV = new System.Windows.Forms.TextBox();
             this.labelNgaySinh = new System.Windows.Forms.Label();
             this.labelPhai = new System.Windows.Forms.Label();
             this.labelHoTen = new System.Windows.Forms.Label();
-            this.labelMaNV = new System.Windows.Forms.Label();
             this.dateNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtBoxSDT = new System.Windows.Forms.TextBox();
             this.numPhuCap = new System.Windows.Forms.NumericUpDown();
@@ -58,6 +56,7 @@
             this.btnOk.TabIndex = 22;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -68,11 +67,12 @@
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtBoxMaDV
             // 
             this.txtBoxMaDV.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxMaDV.Location = new System.Drawing.Point(334, 372);
+            this.txtBoxMaDV.Location = new System.Drawing.Point(49, 88);
             this.txtBoxMaDV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBoxMaDV.Name = "txtBoxMaDV";
             this.txtBoxMaDV.Size = new System.Drawing.Size(202, 28);
@@ -91,7 +91,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.label4.Location = new System.Drawing.Point(330, 347);
+            this.label4.Location = new System.Drawing.Point(45, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 21);
             this.label4.TabIndex = 12;
@@ -145,15 +145,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Phụ cấp";
             // 
-            // txtBoxMaNV
-            // 
-            this.txtBoxMaNV.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.txtBoxMaNV.Location = new System.Drawing.Point(49, 88);
-            this.txtBoxMaNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBoxMaNV.Name = "txtBoxMaNV";
-            this.txtBoxMaNV.Size = new System.Drawing.Size(202, 28);
-            this.txtBoxMaNV.TabIndex = 19;
-            // 
             // labelNgaySinh
             // 
             this.labelNgaySinh.AutoSize = true;
@@ -183,16 +174,6 @@
             this.labelHoTen.Size = new System.Drawing.Size(83, 21);
             this.labelHoTen.TabIndex = 10;
             this.labelHoTen.Text = "Họ và tên";
-            // 
-            // labelMaNV
-            // 
-            this.labelMaNV.AutoSize = true;
-            this.labelMaNV.Font = new System.Drawing.Font("Bahnschrift", 10.2F);
-            this.labelMaNV.Location = new System.Drawing.Point(45, 63);
-            this.labelMaNV.Name = "labelMaNV";
-            this.labelMaNV.Size = new System.Drawing.Size(109, 21);
-            this.labelMaNV.TabIndex = 11;
-            this.labelMaNV.Text = "Mã nhân viên";
             // 
             // dateNgaySinh
             // 
@@ -250,11 +231,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBoxHoTen);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxMaNV);
             this.Controls.Add(this.labelNgaySinh);
             this.Controls.Add(this.labelPhai);
             this.Controls.Add(this.labelHoTen);
-            this.Controls.Add(this.labelMaNV);
             this.Name = "FormThemNhanSu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm nhân sự";
@@ -276,11 +255,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxHoTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxMaNV;
         private System.Windows.Forms.Label labelNgaySinh;
         private System.Windows.Forms.Label labelPhai;
         private System.Windows.Forms.Label labelHoTen;
-        private System.Windows.Forms.Label labelMaNV;
         private System.Windows.Forms.DateTimePicker dateNgaySinh;
         private System.Windows.Forms.TextBox txtBoxSDT;
         private System.Windows.Forms.NumericUpDown numPhuCap;
