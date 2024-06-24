@@ -76,6 +76,7 @@
             this.resultCourseRegister_dataGridView = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
             this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
+            this.button1 = new System.Windows.Forms.Button();
             this.formMainSVTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -99,10 +100,10 @@
             this.formMainSVTabControl.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formMainSVTabControl.ItemSize = new System.Drawing.Size(105, 32);
             this.formMainSVTabControl.Location = new System.Drawing.Point(-3, -1);
-            this.formMainSVTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.formMainSVTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.formMainSVTabControl.Name = "formMainSVTabControl";
             this.formMainSVTabControl.SelectedIndex = 0;
-            this.formMainSVTabControl.Size = new System.Drawing.Size(1388, 725);
+            this.formMainSVTabControl.Size = new System.Drawing.Size(1388, 680);
             this.formMainSVTabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -129,10 +130,10 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.maSV_label);
             this.tabPage1.Location = new System.Drawing.Point(4, 36);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1380, 685);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1380, 640);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin sinh  viên";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -141,7 +142,7 @@
             // 
             this.updateInfo_Btn.BackColor = System.Drawing.Color.MediumAquamarine;
             this.updateInfo_Btn.Location = new System.Drawing.Point(812, 487);
-            this.updateInfo_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.updateInfo_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.updateInfo_Btn.Name = "updateInfo_Btn";
             this.updateInfo_Btn.Size = new System.Drawing.Size(167, 43);
             this.updateInfo_Btn.TabIndex = 33;
@@ -152,7 +153,7 @@
             // dtbtl_TextBox
             // 
             this.dtbtl_TextBox.Location = new System.Drawing.Point(776, 322);
-            this.dtbtl_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtbtl_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dtbtl_TextBox.Name = "dtbtl_TextBox";
             this.dtbtl_TextBox.ReadOnly = true;
             this.dtbtl_TextBox.Size = new System.Drawing.Size(201, 26);
@@ -161,7 +162,7 @@
             // stctl_TextBox
             // 
             this.stctl_TextBox.Location = new System.Drawing.Point(776, 274);
-            this.stctl_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stctl_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.stctl_TextBox.Name = "stctl_TextBox";
             this.stctl_TextBox.ReadOnly = true;
             this.stctl_TextBox.Size = new System.Drawing.Size(201, 26);
@@ -192,7 +193,7 @@
             // maNganh_TextBox
             // 
             this.maNganh_TextBox.Location = new System.Drawing.Point(173, 322);
-            this.maNganh_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maNganh_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.maNganh_TextBox.Name = "maNganh_TextBox";
             this.maNganh_TextBox.ReadOnly = true;
             this.maNganh_TextBox.Size = new System.Drawing.Size(227, 26);
@@ -201,7 +202,7 @@
             // maCT_TextBox
             // 
             this.maCT_TextBox.Location = new System.Drawing.Point(173, 272);
-            this.maCT_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maCT_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.maCT_TextBox.Name = "maCT_TextBox";
             this.maCT_TextBox.ReadOnly = true;
             this.maCT_TextBox.Size = new System.Drawing.Size(227, 26);
@@ -232,7 +233,7 @@
             // SDT_TextBox
             // 
             this.SDT_TextBox.Location = new System.Drawing.Point(705, 27);
-            this.SDT_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SDT_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SDT_TextBox.Name = "SDT_TextBox";
             this.SDT_TextBox.ReadOnly = true;
             this.SDT_TextBox.Size = new System.Drawing.Size(272, 26);
@@ -241,7 +242,7 @@
             // ngaySinh_TextBox
             // 
             this.ngaySinh_TextBox.Location = new System.Drawing.Point(705, 75);
-            this.ngaySinh_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ngaySinh_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ngaySinh_TextBox.Name = "ngaySinh_TextBox";
             this.ngaySinh_TextBox.ReadOnly = true;
             this.ngaySinh_TextBox.Size = new System.Drawing.Size(272, 26);
@@ -250,7 +251,7 @@
             // diaChi_TextBox
             // 
             this.diaChi_TextBox.Location = new System.Drawing.Point(705, 126);
-            this.diaChi_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diaChi_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.diaChi_TextBox.Multiline = true;
             this.diaChi_TextBox.Name = "diaChi_TextBox";
             this.diaChi_TextBox.ReadOnly = true;
@@ -293,7 +294,7 @@
             // gioiTinh_TextBox
             // 
             this.gioiTinh_TextBox.Location = new System.Drawing.Point(173, 123);
-            this.gioiTinh_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gioiTinh_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.gioiTinh_TextBox.Name = "gioiTinh_TextBox";
             this.gioiTinh_TextBox.ReadOnly = true;
             this.gioiTinh_TextBox.Size = new System.Drawing.Size(227, 26);
@@ -302,7 +303,7 @@
             // hoTen_TextBox
             // 
             this.hoTen_TextBox.Location = new System.Drawing.Point(173, 75);
-            this.hoTen_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hoTen_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.hoTen_TextBox.Name = "hoTen_TextBox";
             this.hoTen_TextBox.ReadOnly = true;
             this.hoTen_TextBox.Size = new System.Drawing.Size(227, 26);
@@ -311,7 +312,7 @@
             // maSV_TextBox
             // 
             this.maSV_TextBox.Location = new System.Drawing.Point(173, 30);
-            this.maSV_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maSV_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.maSV_TextBox.Name = "maSV_TextBox";
             this.maSV_TextBox.ReadOnly = true;
             this.maSV_TextBox.Size = new System.Drawing.Size(227, 26);
@@ -359,9 +360,9 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 36);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1380, 685);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tra cứu kết quả học tập";
@@ -371,7 +372,7 @@
             // 
             this.resultLookup_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultLookup_dataGridView.Location = new System.Drawing.Point(40, 103);
-            this.resultLookup_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultLookup_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.resultLookup_dataGridView.Name = "resultLookup_dataGridView";
             this.resultLookup_dataGridView.RowHeadersWidth = 51;
             this.resultLookup_dataGridView.Size = new System.Drawing.Size(1300, 556);
@@ -381,7 +382,7 @@
             // 
             this.lookUp_Btn.BackColor = System.Drawing.Color.Turquoise;
             this.lookUp_Btn.Location = new System.Drawing.Point(1216, 18);
-            this.lookUp_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lookUp_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.lookUp_Btn.Name = "lookUp_Btn";
             this.lookUp_Btn.Size = new System.Drawing.Size(124, 36);
             this.lookUp_Btn.TabIndex = 4;
@@ -393,7 +394,7 @@
             // 
             this.semester_ComboBox.FormattingEnabled = true;
             this.semester_ComboBox.Location = new System.Drawing.Point(488, 23);
-            this.semester_ComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.semester_ComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.semester_ComboBox.Name = "semester_ComboBox";
             this.semester_ComboBox.Size = new System.Drawing.Size(160, 26);
             this.semester_ComboBox.TabIndex = 3;
@@ -402,7 +403,7 @@
             // 
             this.year_ComboBox.FormattingEnabled = true;
             this.year_ComboBox.Location = new System.Drawing.Point(140, 23);
-            this.year_ComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.year_ComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.year_ComboBox.Name = "year_ComboBox";
             this.year_ComboBox.Size = new System.Drawing.Size(160, 26);
             this.year_ComboBox.TabIndex = 2;
@@ -436,9 +437,9 @@
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Location = new System.Drawing.Point(4, 36);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1380, 685);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Kế hoạch mở";
@@ -448,7 +449,7 @@
             // 
             this.KHMO_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.KHMO_dataGridView.Location = new System.Drawing.Point(40, 108);
-            this.KHMO_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KHMO_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.KHMO_dataGridView.Name = "KHMO_dataGridView";
             this.KHMO_dataGridView.RowHeadersWidth = 51;
             this.KHMO_dataGridView.Size = new System.Drawing.Size(1309, 551);
@@ -458,7 +459,7 @@
             // 
             this.lookupKHMO_Btn.BackColor = System.Drawing.Color.Turquoise;
             this.lookupKHMO_Btn.Location = new System.Drawing.Point(1225, 21);
-            this.lookupKHMO_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lookupKHMO_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.lookupKHMO_Btn.Name = "lookupKHMO_Btn";
             this.lookupKHMO_Btn.Size = new System.Drawing.Size(124, 36);
             this.lookupKHMO_Btn.TabIndex = 10;
@@ -470,7 +471,7 @@
             // 
             this.semesterKHMO_ComboBox.FormattingEnabled = true;
             this.semesterKHMO_ComboBox.Location = new System.Drawing.Point(497, 30);
-            this.semesterKHMO_ComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.semesterKHMO_ComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.semesterKHMO_ComboBox.Name = "semesterKHMO_ComboBox";
             this.semesterKHMO_ComboBox.Size = new System.Drawing.Size(160, 26);
             this.semesterKHMO_ComboBox.TabIndex = 9;
@@ -479,7 +480,7 @@
             // 
             this.yearKHM_ComboBox.FormattingEnabled = true;
             this.yearKHM_ComboBox.Location = new System.Drawing.Point(149, 30);
-            this.yearKHM_ComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yearKHM_ComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.yearKHM_ComboBox.Name = "yearKHM_ComboBox";
             this.yearKHM_ComboBox.Size = new System.Drawing.Size(160, 26);
             this.yearKHM_ComboBox.TabIndex = 8;
@@ -513,9 +514,9 @@
             this.tabPage4.Controls.Add(this.DKHP_heading1_label);
             this.tabPage4.Controls.Add(this.courseRegister1_dataGridView);
             this.tabPage4.Location = new System.Drawing.Point(4, 36);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(1380, 685);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Đăng ký học phần";
@@ -536,7 +537,7 @@
             // 
             this.courseRegister2_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.courseRegister2_dataGridView.Location = new System.Drawing.Point(33, 375);
-            this.courseRegister2_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseRegister2_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.courseRegister2_dataGridView.Name = "courseRegister2_dataGridView";
             this.courseRegister2_dataGridView.RowHeadersWidth = 51;
             this.courseRegister2_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -547,7 +548,7 @@
             // 
             this.unRegister_Btn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.unRegister_Btn.Location = new System.Drawing.Point(1211, 272);
-            this.unRegister_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.unRegister_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.unRegister_Btn.Name = "unRegister_Btn";
             this.unRegister_Btn.Size = new System.Drawing.Size(132, 44);
             this.unRegister_Btn.TabIndex = 16;
@@ -559,7 +560,7 @@
             // 
             this.courseRegister_Btn.BackColor = System.Drawing.Color.PaleTurquoise;
             this.courseRegister_Btn.Location = new System.Drawing.Point(1211, 615);
-            this.courseRegister_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseRegister_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.courseRegister_Btn.Name = "courseRegister_Btn";
             this.courseRegister_Btn.Size = new System.Drawing.Size(132, 44);
             this.courseRegister_Btn.TabIndex = 15;
@@ -582,7 +583,7 @@
             // 
             this.courseRegister1_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.courseRegister1_dataGridView.Location = new System.Drawing.Point(33, 60);
-            this.courseRegister1_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseRegister1_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.courseRegister1_dataGridView.Name = "courseRegister1_dataGridView";
             this.courseRegister1_dataGridView.RowHeadersWidth = 51;
             this.courseRegister1_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -594,9 +595,9 @@
             this.tabPage5.Controls.Add(this.resultCourseRegister_dataGridView);
             this.tabPage5.Controls.Add(this.label17);
             this.tabPage5.Location = new System.Drawing.Point(4, 36);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1380, 685);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Kết quả đăng ký học phần";
@@ -606,7 +607,7 @@
             // 
             this.resultCourseRegister_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultCourseRegister_dataGridView.Location = new System.Drawing.Point(39, 71);
-            this.resultCourseRegister_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultCourseRegister_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.resultCourseRegister_dataGridView.Name = "resultCourseRegister_dataGridView";
             this.resultCourseRegister_dataGridView.RowHeadersWidth = 51;
             this.resultCourseRegister_dataGridView.Size = new System.Drawing.Size(1300, 569);
@@ -628,13 +629,25 @@
             this.oracleCommandBuilder1.CatalogLocation = System.Data.Common.CatalogLocation.End;
             this.oracleCommandBuilder1.CatalogSeparator = "@";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.Location = new System.Drawing.Point(1246, 682);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 34);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Đăng xuất";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormMainSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1380, 718);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.formMainSVTabControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMainSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portal - Cổng thông tin sinh viên";
@@ -710,5 +723,6 @@
         private System.Windows.Forms.Button unRegister_Btn;
         private System.Windows.Forms.DataGridView courseRegister2_dataGridView;
         private System.Windows.Forms.Label DKHP_heading2_label;
+        private System.Windows.Forms.Button button1;
     }
 }

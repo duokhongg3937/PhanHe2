@@ -1,14 +1,8 @@
 ﻿using PhanHe2.Models;
-using PhanHe2.UI.KeHoachMo;
 using PhanHe2.UI.PhanCong;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhanHe2

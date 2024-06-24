@@ -45,6 +45,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.tabPageTTCaNhan = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageNhanSu.SuspendLayout();
             this.tabPageSinhVien.SuspendLayout();
@@ -66,14 +67,15 @@
             this.tabControl1.Controls.Add(this.tabPhanCong);
             this.tabControl1.Controls.Add(this.tabPageDangKy);
             this.tabControl1.Controls.Add(this.tabPageTTCaNhan);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(20, 3);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1282, 653);
+            this.tabControl1.Size = new System.Drawing.Size(1282, 611);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageNhanSu
@@ -84,7 +86,7 @@
             this.tabPageNhanSu.Margin = new System.Windows.Forms.Padding(10);
             this.tabPageNhanSu.Name = "tabPageNhanSu";
             this.tabPageNhanSu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNhanSu.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageNhanSu.Size = new System.Drawing.Size(1274, 573);
             this.tabPageNhanSu.TabIndex = 0;
             this.tabPageNhanSu.Text = "Nhân sự";
             this.tabPageNhanSu.UseVisualStyleBackColor = true;
@@ -94,7 +96,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1268, 609);
+            this.panel1.Size = new System.Drawing.Size(1268, 567);
             this.panel1.TabIndex = 0;
             // 
             // tabPageSinhVien
@@ -105,7 +107,7 @@
             this.tabPageSinhVien.Margin = new System.Windows.Forms.Padding(10);
             this.tabPageSinhVien.Name = "tabPageSinhVien";
             this.tabPageSinhVien.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSinhVien.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageSinhVien.Size = new System.Drawing.Size(1274, 573);
             this.tabPageSinhVien.TabIndex = 1;
             this.tabPageSinhVien.Text = "Sinh viên";
             this.tabPageSinhVien.UseVisualStyleBackColor = true;
@@ -116,7 +118,7 @@
             this.panel2.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1268, 609);
+            this.panel2.Size = new System.Drawing.Size(1268, 567);
             this.panel2.TabIndex = 0;
             // 
             // tabPageDonVi
@@ -125,7 +127,7 @@
             this.tabPageDonVi.Location = new System.Drawing.Point(4, 34);
             this.tabPageDonVi.Name = "tabPageDonVi";
             this.tabPageDonVi.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDonVi.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageDonVi.Size = new System.Drawing.Size(1274, 573);
             this.tabPageDonVi.TabIndex = 2;
             this.tabPageDonVi.Text = "Đơn vị";
             this.tabPageDonVi.UseVisualStyleBackColor = true;
@@ -136,7 +138,7 @@
             this.panel3.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1268, 609);
+            this.panel3.Size = new System.Drawing.Size(1268, 567);
             this.panel3.TabIndex = 0;
             // 
             // tabPageHocPhan
@@ -145,7 +147,7 @@
             this.tabPageHocPhan.Location = new System.Drawing.Point(4, 34);
             this.tabPageHocPhan.Name = "tabPageHocPhan";
             this.tabPageHocPhan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHocPhan.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageHocPhan.Size = new System.Drawing.Size(1274, 573);
             this.tabPageHocPhan.TabIndex = 3;
             this.tabPageHocPhan.Text = "Học phần";
             this.tabPageHocPhan.UseVisualStyleBackColor = true;
@@ -156,7 +158,7 @@
             this.panel4.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1268, 609);
+            this.panel4.Size = new System.Drawing.Size(1268, 567);
             this.panel4.TabIndex = 0;
             // 
             // tabPageKHMo
@@ -165,7 +167,7 @@
             this.tabPageKHMo.Location = new System.Drawing.Point(4, 34);
             this.tabPageKHMo.Name = "tabPageKHMo";
             this.tabPageKHMo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKHMo.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageKHMo.Size = new System.Drawing.Size(1274, 573);
             this.tabPageKHMo.TabIndex = 4;
             this.tabPageKHMo.Text = "Kế hoạch mở";
             this.tabPageKHMo.UseVisualStyleBackColor = true;
@@ -176,7 +178,7 @@
             this.panel5.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1268, 609);
+            this.panel5.Size = new System.Drawing.Size(1268, 567);
             this.panel5.TabIndex = 0;
             // 
             // tabPhanCong
@@ -185,7 +187,7 @@
             this.tabPhanCong.Location = new System.Drawing.Point(4, 34);
             this.tabPhanCong.Name = "tabPhanCong";
             this.tabPhanCong.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPhanCong.Size = new System.Drawing.Size(1274, 615);
+            this.tabPhanCong.Size = new System.Drawing.Size(1274, 573);
             this.tabPhanCong.TabIndex = 5;
             this.tabPhanCong.Text = "Phân công";
             this.tabPhanCong.UseVisualStyleBackColor = true;
@@ -196,7 +198,7 @@
             this.panel6.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1268, 609);
+            this.panel6.Size = new System.Drawing.Size(1268, 567);
             this.panel6.TabIndex = 0;
             // 
             // tabPageDangKy
@@ -205,7 +207,7 @@
             this.tabPageDangKy.Location = new System.Drawing.Point(4, 34);
             this.tabPageDangKy.Name = "tabPageDangKy";
             this.tabPageDangKy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDangKy.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageDangKy.Size = new System.Drawing.Size(1274, 573);
             this.tabPageDangKy.TabIndex = 6;
             this.tabPageDangKy.Text = "Đăng ký";
             this.tabPageDangKy.UseVisualStyleBackColor = true;
@@ -216,7 +218,7 @@
             this.panel7.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1268, 609);
+            this.panel7.Size = new System.Drawing.Size(1268, 567);
             this.panel7.TabIndex = 0;
             // 
             // tabPageTTCaNhan
@@ -225,7 +227,7 @@
             this.tabPageTTCaNhan.Location = new System.Drawing.Point(4, 34);
             this.tabPageTTCaNhan.Name = "tabPageTTCaNhan";
             this.tabPageTTCaNhan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTTCaNhan.Size = new System.Drawing.Size(1274, 615);
+            this.tabPageTTCaNhan.Size = new System.Drawing.Size(1274, 573);
             this.tabPageTTCaNhan.TabIndex = 7;
             this.tabPageTTCaNhan.Text = "Thông tin cá nhân";
             this.tabPageTTCaNhan.UseVisualStyleBackColor = true;
@@ -236,14 +238,26 @@
             this.panel8.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1268, 609);
+            this.panel8.Size = new System.Drawing.Size(1268, 567);
             this.panel8.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.Location = new System.Drawing.Point(1141, 610);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Đăng xuất";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormManHinhChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 653);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TabPage tabPageTTCaNhan;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -22,8 +22,8 @@ namespace PhanHe2
 
         private void FormManHinhChinh_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
             DatabaseHandler.Disconnect();
+            Application.Exit();
         }
 
         private void FormManHinhChinh_Load(object sender, EventArgs e)
@@ -85,6 +85,20 @@ namespace PhanHe2
                             break;
                     }
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormDangXuat formDangXuat = new FormDangXuat();
+            DialogResult dialogResult = formDangXuat.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                DatabaseHandler.Disconnect();
+                this.Hide();
+                FormDangNhap formDangNhap = new FormDangNhap();
+                formDangNhap.Show();
             }
         }
     }

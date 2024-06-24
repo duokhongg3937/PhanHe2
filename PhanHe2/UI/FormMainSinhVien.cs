@@ -1,13 +1,8 @@
-﻿using PhanHe2.Models;
-using PhanHe2.UI.FormUpdate;
+﻿using PhanHe2.UI.FormUpdate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhanHe2.UI
@@ -427,6 +422,20 @@ namespace PhanHe2.UI
         {
             Application.Exit();
             DatabaseHandler.Disconnect();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormDangXuat formDangXuat = new FormDangXuat();
+            DialogResult dialogResult = formDangXuat.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                DatabaseHandler.Disconnect();
+                this.Hide();
+                FormDangNhap formDangNhap = new FormDangNhap();
+                formDangNhap.Show();
+            }
         }
     }
 }
