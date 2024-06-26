@@ -26,9 +26,16 @@ namespace PhanHe2
             string sid = ConfigurationManager.AppSettings["SID"];
 
 
+            //OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder
+            //{
+            //    DataSource = $"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={host})(PORT={port}))(CONNECT_DATA=(SID={sid})))",
+            //    UserID = username,
+            //    Password = password,
+            //};
+
             OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder
             {
-                DataSource = $"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={host})(PORT={port}))(CONNECT_DATA=(SID={sid})))",
+                DataSource = $"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))",
                 UserID = username,
                 Password = password,
             };
@@ -955,6 +962,40 @@ namespace PhanHe2
         }
 
         #endregion
+
+        public static DataTable GetNotification()
+        {
+            DataTable dataTable = new DataTable();
+
+            // Thêm một cột mới để lưu số thứ tự
+            dataTable.Columns.Add("STT", typeof(int));
+
+            string query = @"
+                                SELECT THOIGIAN, TIEUDE, NOIDUNG,  FROM QLTruongHoc.THONGBAO
+            ";
+
+
+            OracleCommand command = new OracleCommand(query, Conn);
+
+            try
+            {
+                OracleDataAdapter adapter = new OracleDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực hiện câu truy vấn: " + ex.Message);
+                // Xử lý ngoại lệ nếu cần thiết
+            }
+
+            // Đánh số hàng
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                dataTable.Rows[i]["STT"] = i + 1;
+            }
+
+            return dataTable;
+        }
 
     }
 

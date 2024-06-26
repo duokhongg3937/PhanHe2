@@ -77,6 +77,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.notification_dataGridView = new System.Windows.Forms.DataGridView();
             this.formMainSVTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.courseRegister1_dataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultCourseRegister_dataGridView)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notification_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // formMainSVTabControl
@@ -97,13 +101,13 @@
             this.formMainSVTabControl.Controls.Add(this.tabPage3);
             this.formMainSVTabControl.Controls.Add(this.tabPage4);
             this.formMainSVTabControl.Controls.Add(this.tabPage5);
+            this.formMainSVTabControl.Controls.Add(this.tabPage6);
             this.formMainSVTabControl.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formMainSVTabControl.ItemSize = new System.Drawing.Size(105, 32);
-            this.formMainSVTabControl.Location = new System.Drawing.Point(-3, -1);
-            this.formMainSVTabControl.Margin = new System.Windows.Forms.Padding(4);
+            this.formMainSVTabControl.Location = new System.Drawing.Point(-2, -1);
             this.formMainSVTabControl.Name = "formMainSVTabControl";
             this.formMainSVTabControl.SelectedIndex = 0;
-            this.formMainSVTabControl.Size = new System.Drawing.Size(1388, 680);
+            this.formMainSVTabControl.Size = new System.Drawing.Size(1041, 552);
             this.formMainSVTabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -130,10 +134,9 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.maSV_label);
             this.tabPage1.Location = new System.Drawing.Point(4, 36);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1380, 640);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1033, 512);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin sinh  viên";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -141,10 +144,9 @@
             // updateInfo_Btn
             // 
             this.updateInfo_Btn.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.updateInfo_Btn.Location = new System.Drawing.Point(812, 487);
-            this.updateInfo_Btn.Margin = new System.Windows.Forms.Padding(4);
+            this.updateInfo_Btn.Location = new System.Drawing.Point(609, 396);
             this.updateInfo_Btn.Name = "updateInfo_Btn";
-            this.updateInfo_Btn.Size = new System.Drawing.Size(167, 43);
+            this.updateInfo_Btn.Size = new System.Drawing.Size(125, 35);
             this.updateInfo_Btn.TabIndex = 33;
             this.updateInfo_Btn.Text = "Cập nhật";
             this.updateInfo_Btn.UseVisualStyleBackColor = false;
@@ -152,30 +154,27 @@
             // 
             // dtbtl_TextBox
             // 
-            this.dtbtl_TextBox.Location = new System.Drawing.Point(776, 322);
-            this.dtbtl_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.dtbtl_TextBox.Location = new System.Drawing.Point(582, 262);
             this.dtbtl_TextBox.Name = "dtbtl_TextBox";
             this.dtbtl_TextBox.ReadOnly = true;
-            this.dtbtl_TextBox.Size = new System.Drawing.Size(201, 26);
+            this.dtbtl_TextBox.Size = new System.Drawing.Size(152, 22);
             this.dtbtl_TextBox.TabIndex = 32;
             // 
             // stctl_TextBox
             // 
-            this.stctl_TextBox.Location = new System.Drawing.Point(776, 274);
-            this.stctl_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.stctl_TextBox.Location = new System.Drawing.Point(582, 223);
             this.stctl_TextBox.Name = "stctl_TextBox";
             this.stctl_TextBox.ReadOnly = true;
-            this.stctl_TextBox.Size = new System.Drawing.Size(201, 26);
+            this.stctl_TextBox.Size = new System.Drawing.Size(152, 22);
             this.stctl_TextBox.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(556, 325);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(417, 264);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 20);
+            this.label1.Size = new System.Drawing.Size(141, 16);
             this.label1.TabIndex = 30;
             this.label1.Text = "Điểm trung bình tích lũy";
             // 
@@ -183,39 +182,35 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(556, 274);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(417, 223);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 20);
+            this.label2.Size = new System.Drawing.Size(103, 16);
             this.label2.TabIndex = 29;
             this.label2.Text = "Số tín chỉ tích lũy";
             // 
             // maNganh_TextBox
             // 
-            this.maNganh_TextBox.Location = new System.Drawing.Point(173, 322);
-            this.maNganh_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.maNganh_TextBox.Location = new System.Drawing.Point(130, 262);
             this.maNganh_TextBox.Name = "maNganh_TextBox";
             this.maNganh_TextBox.ReadOnly = true;
-            this.maNganh_TextBox.Size = new System.Drawing.Size(227, 26);
+            this.maNganh_TextBox.Size = new System.Drawing.Size(171, 22);
             this.maNganh_TextBox.TabIndex = 28;
             // 
             // maCT_TextBox
             // 
-            this.maCT_TextBox.Location = new System.Drawing.Point(173, 272);
-            this.maCT_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.maCT_TextBox.Location = new System.Drawing.Point(130, 221);
             this.maCT_TextBox.Name = "maCT_TextBox";
             this.maCT_TextBox.ReadOnly = true;
-            this.maCT_TextBox.Size = new System.Drawing.Size(227, 26);
+            this.maCT_TextBox.Size = new System.Drawing.Size(171, 22);
             this.maCT_TextBox.TabIndex = 27;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(48, 325);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(36, 264);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 20);
+            this.label9.Size = new System.Drawing.Size(66, 16);
             this.label9.TabIndex = 26;
             this.label9.Text = "Mã ngành";
             // 
@@ -223,49 +218,44 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(48, 274);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(36, 223);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 20);
+            this.label10.Size = new System.Drawing.Size(47, 16);
             this.label10.TabIndex = 25;
             this.label10.Text = "Mã CT";
             // 
             // SDT_TextBox
             // 
-            this.SDT_TextBox.Location = new System.Drawing.Point(705, 27);
-            this.SDT_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SDT_TextBox.Location = new System.Drawing.Point(529, 22);
             this.SDT_TextBox.Name = "SDT_TextBox";
             this.SDT_TextBox.ReadOnly = true;
-            this.SDT_TextBox.Size = new System.Drawing.Size(272, 26);
+            this.SDT_TextBox.Size = new System.Drawing.Size(205, 22);
             this.SDT_TextBox.TabIndex = 24;
             // 
             // ngaySinh_TextBox
             // 
-            this.ngaySinh_TextBox.Location = new System.Drawing.Point(705, 75);
-            this.ngaySinh_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ngaySinh_TextBox.Location = new System.Drawing.Point(529, 61);
             this.ngaySinh_TextBox.Name = "ngaySinh_TextBox";
             this.ngaySinh_TextBox.ReadOnly = true;
-            this.ngaySinh_TextBox.Size = new System.Drawing.Size(272, 26);
+            this.ngaySinh_TextBox.Size = new System.Drawing.Size(205, 22);
             this.ngaySinh_TextBox.TabIndex = 23;
             // 
             // diaChi_TextBox
             // 
-            this.diaChi_TextBox.Location = new System.Drawing.Point(705, 126);
-            this.diaChi_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.diaChi_TextBox.Location = new System.Drawing.Point(529, 102);
             this.diaChi_TextBox.Multiline = true;
             this.diaChi_TextBox.Name = "diaChi_TextBox";
             this.diaChi_TextBox.ReadOnly = true;
-            this.diaChi_TextBox.Size = new System.Drawing.Size(481, 26);
+            this.diaChi_TextBox.Size = new System.Drawing.Size(362, 22);
             this.diaChi_TextBox.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(556, 30);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(417, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 20);
+            this.label6.Size = new System.Drawing.Size(34, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "SĐT";
             // 
@@ -273,10 +263,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(556, 75);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(417, 61);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 20);
+            this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 20;
             this.label7.Text = "Ngày sinh";
             // 
@@ -284,48 +273,43 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(556, 126);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(417, 102);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 20);
+            this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "Địa chỉ";
             // 
             // gioiTinh_TextBox
             // 
-            this.gioiTinh_TextBox.Location = new System.Drawing.Point(173, 123);
-            this.gioiTinh_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.gioiTinh_TextBox.Location = new System.Drawing.Point(130, 100);
             this.gioiTinh_TextBox.Name = "gioiTinh_TextBox";
             this.gioiTinh_TextBox.ReadOnly = true;
-            this.gioiTinh_TextBox.Size = new System.Drawing.Size(227, 26);
+            this.gioiTinh_TextBox.Size = new System.Drawing.Size(171, 22);
             this.gioiTinh_TextBox.TabIndex = 18;
             // 
             // hoTen_TextBox
             // 
-            this.hoTen_TextBox.Location = new System.Drawing.Point(173, 75);
-            this.hoTen_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.hoTen_TextBox.Location = new System.Drawing.Point(130, 61);
             this.hoTen_TextBox.Name = "hoTen_TextBox";
             this.hoTen_TextBox.ReadOnly = true;
-            this.hoTen_TextBox.Size = new System.Drawing.Size(227, 26);
+            this.hoTen_TextBox.Size = new System.Drawing.Size(171, 22);
             this.hoTen_TextBox.TabIndex = 17;
             // 
             // maSV_TextBox
             // 
-            this.maSV_TextBox.Location = new System.Drawing.Point(173, 30);
-            this.maSV_TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.maSV_TextBox.Location = new System.Drawing.Point(130, 24);
             this.maSV_TextBox.Name = "maSV_TextBox";
             this.maSV_TextBox.ReadOnly = true;
-            this.maSV_TextBox.Size = new System.Drawing.Size(227, 26);
+            this.maSV_TextBox.Size = new System.Drawing.Size(171, 22);
             this.maSV_TextBox.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 126);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(28, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 20);
+            this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 15;
             this.label5.Text = "Giới tính";
             // 
@@ -333,10 +317,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 80);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(28, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.Size = new System.Drawing.Size(46, 16);
             this.label4.TabIndex = 14;
             this.label4.Text = "Họ tên";
             // 
@@ -344,10 +327,9 @@
             // 
             this.maSV_label.AutoSize = true;
             this.maSV_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maSV_label.Location = new System.Drawing.Point(37, 32);
-            this.maSV_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.maSV_label.Location = new System.Drawing.Point(28, 26);
             this.maSV_label.Name = "maSV_label";
-            this.maSV_label.Size = new System.Drawing.Size(59, 20);
+            this.maSV_label.Size = new System.Drawing.Size(47, 16);
             this.maSV_label.TabIndex = 13;
             this.maSV_label.Text = "Mã SV";
             // 
@@ -360,10 +342,9 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 36);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1380, 685);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1033, 512);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tra cứu kết quả học tập";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -371,20 +352,18 @@
             // resultLookup_dataGridView
             // 
             this.resultLookup_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultLookup_dataGridView.Location = new System.Drawing.Point(40, 103);
-            this.resultLookup_dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.resultLookup_dataGridView.Location = new System.Drawing.Point(30, 84);
             this.resultLookup_dataGridView.Name = "resultLookup_dataGridView";
             this.resultLookup_dataGridView.RowHeadersWidth = 51;
-            this.resultLookup_dataGridView.Size = new System.Drawing.Size(1300, 556);
+            this.resultLookup_dataGridView.Size = new System.Drawing.Size(975, 452);
             this.resultLookup_dataGridView.TabIndex = 5;
             // 
             // lookUp_Btn
             // 
             this.lookUp_Btn.BackColor = System.Drawing.Color.Turquoise;
-            this.lookUp_Btn.Location = new System.Drawing.Point(1216, 18);
-            this.lookUp_Btn.Margin = new System.Windows.Forms.Padding(4);
+            this.lookUp_Btn.Location = new System.Drawing.Point(912, 15);
             this.lookUp_Btn.Name = "lookUp_Btn";
-            this.lookUp_Btn.Size = new System.Drawing.Size(124, 36);
+            this.lookUp_Btn.Size = new System.Drawing.Size(93, 29);
             this.lookUp_Btn.TabIndex = 4;
             this.lookUp_Btn.Text = "Tra cứu";
             this.lookUp_Btn.UseVisualStyleBackColor = false;
@@ -393,38 +372,34 @@
             // semester_ComboBox
             // 
             this.semester_ComboBox.FormattingEnabled = true;
-            this.semester_ComboBox.Location = new System.Drawing.Point(488, 23);
-            this.semester_ComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.semester_ComboBox.Location = new System.Drawing.Point(366, 19);
             this.semester_ComboBox.Name = "semester_ComboBox";
-            this.semester_ComboBox.Size = new System.Drawing.Size(160, 26);
+            this.semester_ComboBox.Size = new System.Drawing.Size(121, 22);
             this.semester_ComboBox.TabIndex = 3;
             // 
             // year_ComboBox
             // 
             this.year_ComboBox.FormattingEnabled = true;
-            this.year_ComboBox.Location = new System.Drawing.Point(140, 23);
-            this.year_ComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.year_ComboBox.Location = new System.Drawing.Point(105, 19);
             this.year_ComboBox.Name = "year_ComboBox";
-            this.year_ComboBox.Size = new System.Drawing.Size(160, 26);
+            this.year_ComboBox.Size = new System.Drawing.Size(121, 22);
             this.year_ComboBox.TabIndex = 2;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(379, 27);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(284, 22);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 18);
+            this.label12.Size = new System.Drawing.Size(45, 14);
             this.label12.TabIndex = 1;
             this.label12.Text = "Học kỳ:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 27);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(20, 22);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 18);
+            this.label11.Size = new System.Drawing.Size(57, 14);
             this.label11.TabIndex = 0;
             this.label11.Text = "Năm học:";
             // 
@@ -437,10 +412,9 @@
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Location = new System.Drawing.Point(4, 36);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1380, 685);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(1033, 512);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Kế hoạch mở";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -448,20 +422,18 @@
             // KHMO_dataGridView
             // 
             this.KHMO_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.KHMO_dataGridView.Location = new System.Drawing.Point(40, 108);
-            this.KHMO_dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.KHMO_dataGridView.Location = new System.Drawing.Point(30, 88);
             this.KHMO_dataGridView.Name = "KHMO_dataGridView";
             this.KHMO_dataGridView.RowHeadersWidth = 51;
-            this.KHMO_dataGridView.Size = new System.Drawing.Size(1309, 551);
+            this.KHMO_dataGridView.Size = new System.Drawing.Size(982, 448);
             this.KHMO_dataGridView.TabIndex = 11;
             // 
             // lookupKHMO_Btn
             // 
             this.lookupKHMO_Btn.BackColor = System.Drawing.Color.Turquoise;
-            this.lookupKHMO_Btn.Location = new System.Drawing.Point(1225, 21);
-            this.lookupKHMO_Btn.Margin = new System.Windows.Forms.Padding(4);
+            this.lookupKHMO_Btn.Location = new System.Drawing.Point(919, 17);
             this.lookupKHMO_Btn.Name = "lookupKHMO_Btn";
-            this.lookupKHMO_Btn.Size = new System.Drawing.Size(124, 36);
+            this.lookupKHMO_Btn.Size = new System.Drawing.Size(93, 29);
             this.lookupKHMO_Btn.TabIndex = 10;
             this.lookupKHMO_Btn.Text = "Tra cứu";
             this.lookupKHMO_Btn.UseVisualStyleBackColor = false;
@@ -470,38 +442,34 @@
             // semesterKHMO_ComboBox
             // 
             this.semesterKHMO_ComboBox.FormattingEnabled = true;
-            this.semesterKHMO_ComboBox.Location = new System.Drawing.Point(497, 30);
-            this.semesterKHMO_ComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.semesterKHMO_ComboBox.Location = new System.Drawing.Point(373, 24);
             this.semesterKHMO_ComboBox.Name = "semesterKHMO_ComboBox";
-            this.semesterKHMO_ComboBox.Size = new System.Drawing.Size(160, 26);
+            this.semesterKHMO_ComboBox.Size = new System.Drawing.Size(121, 22);
             this.semesterKHMO_ComboBox.TabIndex = 9;
             // 
             // yearKHM_ComboBox
             // 
             this.yearKHM_ComboBox.FormattingEnabled = true;
-            this.yearKHM_ComboBox.Location = new System.Drawing.Point(149, 30);
-            this.yearKHM_ComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.yearKHM_ComboBox.Location = new System.Drawing.Point(112, 24);
             this.yearKHM_ComboBox.Name = "yearKHM_ComboBox";
-            this.yearKHM_ComboBox.Size = new System.Drawing.Size(160, 26);
+            this.yearKHM_ComboBox.Size = new System.Drawing.Size(121, 22);
             this.yearKHM_ComboBox.TabIndex = 8;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(388, 33);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(291, 27);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 18);
+            this.label13.Size = new System.Drawing.Size(45, 14);
             this.label13.TabIndex = 7;
             this.label13.Text = "Học kỳ:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(36, 33);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(27, 27);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 18);
+            this.label14.Size = new System.Drawing.Size(57, 14);
             this.label14.TabIndex = 6;
             this.label14.Text = "Năm học:";
             // 
@@ -514,10 +482,9 @@
             this.tabPage4.Controls.Add(this.DKHP_heading1_label);
             this.tabPage4.Controls.Add(this.courseRegister1_dataGridView);
             this.tabPage4.Location = new System.Drawing.Point(4, 36);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1380, 685);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(1033, 512);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Đăng ký học phần";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -526,31 +493,28 @@
             // 
             this.DKHP_heading2_label.AutoSize = true;
             this.DKHP_heading2_label.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DKHP_heading2_label.Location = new System.Drawing.Point(29, 334);
-            this.DKHP_heading2_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DKHP_heading2_label.Location = new System.Drawing.Point(22, 271);
             this.DKHP_heading2_label.Name = "DKHP_heading2_label";
-            this.DKHP_heading2_label.Size = new System.Drawing.Size(202, 23);
+            this.DKHP_heading2_label.Size = new System.Drawing.Size(157, 18);
             this.DKHP_heading2_label.TabIndex = 18;
             this.DKHP_heading2_label.Text = "Danh sách môn còn lại";
             // 
             // courseRegister2_dataGridView
             // 
             this.courseRegister2_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.courseRegister2_dataGridView.Location = new System.Drawing.Point(33, 375);
-            this.courseRegister2_dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.courseRegister2_dataGridView.Location = new System.Drawing.Point(25, 305);
             this.courseRegister2_dataGridView.Name = "courseRegister2_dataGridView";
             this.courseRegister2_dataGridView.RowHeadersWidth = 51;
             this.courseRegister2_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseRegister2_dataGridView.Size = new System.Drawing.Size(1309, 233);
+            this.courseRegister2_dataGridView.Size = new System.Drawing.Size(982, 189);
             this.courseRegister2_dataGridView.TabIndex = 17;
             // 
             // unRegister_Btn
             // 
             this.unRegister_Btn.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.unRegister_Btn.Location = new System.Drawing.Point(1211, 272);
-            this.unRegister_Btn.Margin = new System.Windows.Forms.Padding(4);
+            this.unRegister_Btn.Location = new System.Drawing.Point(908, 221);
             this.unRegister_Btn.Name = "unRegister_Btn";
-            this.unRegister_Btn.Size = new System.Drawing.Size(132, 44);
+            this.unRegister_Btn.Size = new System.Drawing.Size(99, 36);
             this.unRegister_Btn.TabIndex = 16;
             this.unRegister_Btn.Text = "Hủy đăng ký";
             this.unRegister_Btn.UseVisualStyleBackColor = false;
@@ -559,10 +523,9 @@
             // courseRegister_Btn
             // 
             this.courseRegister_Btn.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.courseRegister_Btn.Location = new System.Drawing.Point(1211, 615);
-            this.courseRegister_Btn.Margin = new System.Windows.Forms.Padding(4);
+            this.courseRegister_Btn.Location = new System.Drawing.Point(908, 500);
             this.courseRegister_Btn.Name = "courseRegister_Btn";
-            this.courseRegister_Btn.Size = new System.Drawing.Size(132, 44);
+            this.courseRegister_Btn.Size = new System.Drawing.Size(99, 36);
             this.courseRegister_Btn.TabIndex = 15;
             this.courseRegister_Btn.Text = "Đăng ký";
             this.courseRegister_Btn.UseVisualStyleBackColor = false;
@@ -572,22 +535,20 @@
             // 
             this.DKHP_heading1_label.AutoSize = true;
             this.DKHP_heading1_label.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DKHP_heading1_label.Location = new System.Drawing.Point(29, 17);
-            this.DKHP_heading1_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DKHP_heading1_label.Location = new System.Drawing.Point(22, 14);
             this.DKHP_heading1_label.Name = "DKHP_heading1_label";
-            this.DKHP_heading1_label.Size = new System.Drawing.Size(236, 23);
+            this.DKHP_heading1_label.Size = new System.Drawing.Size(185, 18);
             this.DKHP_heading1_label.TabIndex = 14;
             this.DKHP_heading1_label.Text = "Danh sách môn đã đăng ký";
             // 
             // courseRegister1_dataGridView
             // 
             this.courseRegister1_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.courseRegister1_dataGridView.Location = new System.Drawing.Point(33, 60);
-            this.courseRegister1_dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.courseRegister1_dataGridView.Location = new System.Drawing.Point(25, 49);
             this.courseRegister1_dataGridView.Name = "courseRegister1_dataGridView";
             this.courseRegister1_dataGridView.RowHeadersWidth = 51;
             this.courseRegister1_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseRegister1_dataGridView.Size = new System.Drawing.Size(1309, 204);
+            this.courseRegister1_dataGridView.Size = new System.Drawing.Size(982, 166);
             this.courseRegister1_dataGridView.TabIndex = 0;
             // 
             // tabPage5
@@ -595,10 +556,9 @@
             this.tabPage5.Controls.Add(this.resultCourseRegister_dataGridView);
             this.tabPage5.Controls.Add(this.label17);
             this.tabPage5.Location = new System.Drawing.Point(4, 36);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(1380, 685);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Size = new System.Drawing.Size(1033, 512);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Kết quả đăng ký học phần";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -606,21 +566,19 @@
             // resultCourseRegister_dataGridView
             // 
             this.resultCourseRegister_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultCourseRegister_dataGridView.Location = new System.Drawing.Point(39, 71);
-            this.resultCourseRegister_dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.resultCourseRegister_dataGridView.Location = new System.Drawing.Point(29, 58);
             this.resultCourseRegister_dataGridView.Name = "resultCourseRegister_dataGridView";
             this.resultCourseRegister_dataGridView.RowHeadersWidth = 51;
-            this.resultCourseRegister_dataGridView.Size = new System.Drawing.Size(1300, 569);
+            this.resultCourseRegister_dataGridView.Size = new System.Drawing.Size(975, 462);
             this.resultCourseRegister_dataGridView.TabIndex = 15;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(35, 25);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(26, 20);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(341, 21);
+            this.label17.Size = new System.Drawing.Size(255, 16);
             this.label17.TabIndex = 14;
             this.label17.Text = "Danh sách môn đã đăng ký trong học kỳ này";
             // 
@@ -632,22 +590,45 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.Location = new System.Drawing.Point(1246, 682);
+            this.button1.Location = new System.Drawing.Point(934, 554);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 34);
+            this.button1.Size = new System.Drawing.Size(92, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "Đăng xuất";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.notification_dataGridView);
+            this.tabPage6.Location = new System.Drawing.Point(4, 36);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1033, 512);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Thông báo";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // notification_dataGridView
+            // 
+            this.notification_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.notification_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.notification_dataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.notification_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.notification_dataGridView.Location = new System.Drawing.Point(10, 6);
+            this.notification_dataGridView.Name = "notification_dataGridView";
+            this.notification_dataGridView.ReadOnly = true;
+            this.notification_dataGridView.Size = new System.Drawing.Size(1011, 500);
+            this.notification_dataGridView.TabIndex = 0;
+            // 
             // FormMainSinhVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 718);
+            this.ClientSize = new System.Drawing.Size(1035, 583);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.formMainSVTabControl);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMainSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Portal - Cổng thông tin sinh viên";
@@ -669,6 +650,8 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultCourseRegister_dataGridView)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.notification_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,5 +707,7 @@
         private System.Windows.Forms.DataGridView courseRegister2_dataGridView;
         private System.Windows.Forms.Label DKHP_heading2_label;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridView notification_dataGridView;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using PhanHe2.UI.ThongTinCaNhan;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace PhanHe2
@@ -16,7 +17,8 @@ namespace PhanHe2
                 { "PHANCONG", tabPhanCong },
                 { "DANGKY", tabPageDangKy },
                 { "NHANSU", tabPageNhanSu },
-                { "UV_XEMTHONGTINCANHAN", tabPageTTCaNhan }
+                { "UV_XEMTHONGTINCANHAN", tabPageTTCaNhan },
+
             };
         }
 
@@ -33,7 +35,8 @@ namespace PhanHe2
             tabControl1.TabPages.RemoveByKey("tabPageNhanSu");
             tabControl1.TabPages.RemoveByKey("tabPageTTCaNhan");
 
-            foreach(var roleTablePriv in Program.roleTablePrivileges)
+
+            foreach (var roleTablePriv in Program.roleTablePrivileges)
             {
                 if (roleTablePriv.Privilege == "SELECT")
                 {
@@ -83,9 +86,21 @@ namespace PhanHe2
                             panel7.Controls.Add(formDangKy);
                             formDangKy.Show();
                             break;
+
+
                     }
                 }
+
+
             }
+            Notification_TabPage_Loaded();
+
+        }
+
+        private void Notification_TabPage_Loaded()
+        {
+            DataTable notification = DatabaseHandler.GetNotification();
+            notification_dataGridView.DataSource = notification;
         }
 
         private void button1_Click(object sender, EventArgs e)

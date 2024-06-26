@@ -27,6 +27,8 @@ namespace PhanHe2.UI
 
             ResultDKHP_Tabpage_Loaded();
 
+            Notification_TabPage_Loaded();
+
         }
 
         // variables
@@ -248,6 +250,15 @@ namespace PhanHe2.UI
 
         }
 
+
+        #endregion
+
+        #region Tabpage6: Thông báo
+        private void Notification_TabPage_Loaded()
+        {
+            DataTable notification = DatabaseHandler.GetNotification();
+            notification_dataGridView.DataSource = notification;
+        }
 
         #endregion
 
